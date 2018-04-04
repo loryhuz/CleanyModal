@@ -1,0 +1,16 @@
+PODS:
+  - CleanyModal (0.1.0)
+
+DEPENDENCIES:
+  - CleanyModal (from `../`)
+
+EXTERNAL SOURCES:
+  CleanyModal:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CleanyModal: f7eca3cead0a3ab31143bfe6e244f8ca6a77613f
+
+PODFILE CHECKSUM: f4ab3227c3042c1eee8477416737627f575fd582
+
+COCOAPODS: 1.3.1
