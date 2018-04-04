@@ -1,0 +1,23 @@
+{
+  "name": "CleanyModal",
+  "version": "0.1.0",
+  "summary": "A short description of CleanyModal.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/loryhuz/CleanyModal",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "loryhuz": "lory.huz@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/loryhuz/CleanyModal.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CleanyModal/Classes/**/*",
+  "resources": "CleanyModal/Classes/*.xib"
+}
