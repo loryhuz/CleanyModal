@@ -10,8 +10,6 @@ import CleanyModal
 
 class ViewController: UIViewController {
     
-    var modalTransition = CleanyModalTransition()
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -60,14 +58,6 @@ class ViewController: UIViewController {
         alert.addAction(CleanyAlertAction(title: "Cancel", style: .cancel))
         
         present(alert, animated: true, completion: nil)
-    }
-    
-    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
-        if let alert = viewControllerToPresent as? CleanyModalViewController {
-            alert.transitionInteractor = modalTransition.interactor
-            alert.transitioningDelegate = modalTransition
-        }
-        super.present(viewControllerToPresent, animated: flag, completion: completion)
     }
 }
 

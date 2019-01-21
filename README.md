@@ -25,27 +25,23 @@ Use root modal system to present your custom components and use only the navigat
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-### Notes
+### Preview
 
-As you can see in example projet, to get custom ViewController transition with pan gesture you need to manually add a TransitionInteractor instance in your view controller (I didn't found other better way to do it actually). If you want to be able to use modal everywhere you could inherit all of your view-controllers from one UIViewController class (ex: a class named BaseViewController) where you implement this stuff :
+Present a clean Alert with default style:
 
 ```swift
-class BaseViewController: UIViewController {
-    
-    lazy var modalTransition = {
-        return CleanyModalTransition()
-    }()
+let alertData = CleanyModalBasicData(
+  title: "Hello world",
+  message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed massa a magna semper semper a eget justo")
 
-    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
-        if let alert = viewControllerToPresent as? CleanyModalViewController {
-            alert.transitionInteractor = modalTransition.interactor
-            alert.transitioningDelegate = modalTransition
-        }
+let alert = CleanyAlertViewController(data: alertData)
 
-        super.present(viewControllerToPresent, animated: flag, completion: completion)
-    }
-}
+alert.addAction(CleanyAlertAction(title: "OK", style: .default))
+alert.addAction(CleanyAlertAction(title: "Cancel", style: .cancel))
+
+present(alert, animated: true, completion: nil)
 ```
+See example project to see all abilities to customize, enjoy !
 
 ## Requirements
 

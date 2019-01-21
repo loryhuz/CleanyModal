@@ -9,7 +9,11 @@ import UIKit
 
 open class CleanyModalViewController: UIViewController {
     
-    open var transitionInteractor: CleanyModalTransitionInteractor? = nil
+    open var modalTransition = CleanyModalTransition() {
+        didSet {
+            transitioningDelegate = modalTransition
+        }
+    }
     open var onDismissCallback: ((UIViewController) -> ())?
     
     @IBOutlet public var alertView: UIView!
@@ -24,7 +28,8 @@ open class CleanyModalViewController: UIViewController {
         gestureRecognizer = UIPanGestureRecognizer(target: self, action: .handleGesture)
         alertView.addGestureRecognizer(gestureRecognizer)
         
-        transitionInteractor?.delegate = self
+        modalTransition.interactor.delegate = self
+        transitioningDelegate = modalTransition
         
         NotificationCenter.default.addObserver(
             self,
@@ -45,8 +50,8 @@ open class CleanyModalViewController: UIViewController {
         let velocity = sender.velocity(in: view)
         let verticalMovement = translation.y / self.view.bounds.height
         let progress = min(max(verticalMovement, 0.0), 1.0)
-
-        guard let interactor = transitionInteractor else { return }
+        let interactor = modalTransition.interactor
+        
         switch sender.state {
         case .began, .changed:
             if velocity.y > 0 && interactor.hasStarted == false {
