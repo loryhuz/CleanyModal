@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIApplication.shared.statusBarStyle = .lightContent
         navigationController?.navigationBar.barStyle = .black
         
         guard let stackView = view.subviews.first(where: { $0 is UIStackView }) as? UIStackView else { return }
