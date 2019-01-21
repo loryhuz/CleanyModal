@@ -75,13 +75,11 @@ class ViewController: UIViewController {
 class MyAlertViewController: CleanyAlertViewController {
     override init(data: CleanyModalBasicData, style: CleanyModalStyle? = nil) {
         if style == nil {
-            super.init(
-                data: data,
-                style: CleanyModalStyle(
-                    tintColor: UIColor(red: 8/255, green: 61/255, blue: 119/255, alpha: 1),
-                    cancelColor: UIColor(red: 218/255, green: 65/255, blue: 103/255, alpha: 1)
-                )
+            let defaultStyle = CleanyModalStyle(
+                tintColor: UIColor(red: 8/255, green: 61/255, blue: 119/255, alpha: 1),
+                destructiveColor: UIColor(red: 218/255, green: 65/255, blue: 103/255, alpha: 1)
             )
+            super.init(data: data, style: defaultStyle)
         } else {
             super.init(data: data, style: style)
         }
