@@ -15,10 +15,11 @@
 		48D759C668147FDFB5DB83D4EC72FD92 /* CleanyAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42E19D35B0194B8CD1A9ED8E54F5D5DE /* CleanyAlertViewController.xib */; };
 		501FFE58CE2B7811899A0FA5A21EE935 /* Pods-CleanyModal_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD5AEFBB04043EBB381CDC79A16E4 /* Pods-CleanyModal_Example-dummy.m */; };
 		83C3BCD44495C4E8C4DA81A56F1A4D1E /* CleanyModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABEB6A7384A701B28C4E73D4BD7060D /* CleanyModalViewController.swift */; };
+		9C58228221F5E16A002503A7 /* CleanyAlertActionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C58228021F5E16A002503A7 /* CleanyAlertActionTableViewCell.xib */; };
+		9C58228321F5E16A002503A7 /* CleanyAlertActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58228121F5E16A002503A7 /* CleanyAlertActionTableViewCell.swift */; };
 		AFC0CBE2D8A4EE17BF9A1D7E689A2747 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		C803C771992AD39B219C079A7CBEE774 /* CleanyAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B74D60B44EC1B7C7586E50ACC856CF /* CleanyAlertViewController.swift */; };
 		E576F4C0A246DB9471A0AA807966DA73 /* CleanyModal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B9088EC2A7EA68202A9B4F10689DA50C /* CleanyModal-dummy.m */; };
-		F9DD7BFF35412F12E67231D3737983AF /* CleanyAlertViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 42E19D35B0194B8CD1A9ED8E54F5D5DE /* CleanyAlertViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6EB23C2D201570C623360D08CEF537BC /* Pods-CleanyModal_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CleanyModal_Example-frameworks.sh"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9C58228021F5E16A002503A7 /* CleanyAlertActionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CleanyAlertActionTableViewCell.xib; path = CleanyModal/Classes/CleanyAlertActionTableViewCell.xib; sourceTree = "<group>"; };
+		9C58228121F5E16A002503A7 /* CleanyAlertActionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CleanyAlertActionTableViewCell.swift; path = CleanyModal/Classes/CleanyAlertActionTableViewCell.swift; sourceTree = "<group>"; };
 		B5F047784C86E6A4DA3B7521022CEAC3 /* Pods-CleanyModal_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CleanyModal_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B7F6DC06718BDC37B9F653C938FCE165 /* Pods-CleanyModal_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CleanyModal_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		B9088EC2A7EA68202A9B4F10689DA50C /* CleanyModal-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CleanyModal-dummy.m"; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 		3F7F97FE241CAFF05A43CA5961B4E444 /* CleanyModal */ = {
 			isa = PBXGroup;
 			children = (
+				9C58228121F5E16A002503A7 /* CleanyAlertActionTableViewCell.swift */,
+				9C58228021F5E16A002503A7 /* CleanyAlertActionTableViewCell.xib */,
 				03B74D60B44EC1B7C7586E50ACC856CF /* CleanyAlertViewController.swift */,
 				42E19D35B0194B8CD1A9ED8E54F5D5DE /* CleanyAlertViewController.xib */,
 				D3CFE3D62FDA4BD010A3715B21880B01 /* CleanyConfig.swift */,
@@ -250,7 +255,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -275,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C58228221F5E16A002503A7 /* CleanyAlertActionTableViewCell.xib in Resources */,
 				48D759C668147FDFB5DB83D4EC72FD92 /* CleanyAlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C803C771992AD39B219C079A7CBEE774 /* CleanyAlertViewController.swift in Sources */,
-				F9DD7BFF35412F12E67231D3737983AF /* CleanyAlertViewController.xib in Sources */,
+				9C58228321F5E16A002503A7 /* CleanyAlertActionTableViewCell.swift in Sources */,
 				266BD2CD1D5ED3EFA0E66A86E00B180B /* CleanyConfig.swift in Sources */,
 				E576F4C0A246DB9471A0AA807966DA73 /* CleanyModal-dummy.m in Sources */,
 				43BF142D6DCD4E73B728E8A697AA3997 /* CleanyModalTransitionDelegates.swift in Sources */,
@@ -363,6 +369,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -370,6 +377,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -423,6 +431,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -430,6 +439,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
