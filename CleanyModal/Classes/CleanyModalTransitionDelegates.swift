@@ -68,7 +68,7 @@ open class CleanyModalDismisser: NSObject, UIViewControllerAnimatedTransitioning
         sourceViewController.alertViewCenterY.constant += sourceViewController.alertView.center.y + (sourceViewController.alertView.frame.height / 2)
         
         let timingFunction = transitionContext.isInteractive ?
-            CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear) :
+            CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear) :
             CAMediaTimingFunction(controlPoints: 1, 0, 0, 1)
         
         CATransaction.begin()
@@ -94,7 +94,7 @@ open class CleanyModalPresenter: NSObject, UIViewControllerAnimatedTransitioning
         let animation = CABasicAnimation(keyPath: keyPath)
         animation.toValue = value
         animation.isRemovedOnCompletion = false
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         
         return animation
     }

@@ -29,7 +29,7 @@ open class CleanyModalViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.keyboardNotification(notification:)),
-            name: NSNotification.Name.UIKeyboardWillChangeFrame,
+            name: UIResponder.keyboardWillChangeFrameNotification,
             object: nil)
     }
     
@@ -79,12 +79,12 @@ open class CleanyModalViewController: UIViewController {
     
     @objc func keyboardNotification(notification: NSNotification) {
         if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             
-            let duration: TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
-            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
             
             guard let globalPoint = alertView.superview?.convert(alertView.frame.origin, to: nil) else { return }
             
