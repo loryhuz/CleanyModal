@@ -29,7 +29,7 @@ Swift UI Kit to help to present clean and beautiful modal/alert in your iOS apps
   s.social_media_url = 'https://twitter.com/LoryHuz'
 
   s.ios.deployment_target = '9.0'
+  s.swift_version = '4.2'
 
   s.source_files = 'CleanyModal/Classes/**/*'
-  s.resources = 'CleanyModal/Classes/*.xib'
 end
