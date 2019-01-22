@@ -1,8 +1,14 @@
-# CleanyModal
+<p align="center">
+<img src="https://user-images.githubusercontent.com/3198863/51546931-839ac800-1e65-11e9-89a0-aa0d79e25e61.png" />
+</p>
+<br />
+<p align="center">
+<a href="http://cocoapods.org/pods/CleanyModal"><img src="https://img.shields.io/cocoapods/v/CleanyModal.svg?style=flat"/></a>
+<a href="http://cocoapods.org/pods/CleanyModal"><img src="https://img.shields.io/cocoapods/l/CleanyModal.svg?style=flat"/></a>
+<a href="http://cocoapods.org/pods/CleanyModal"><img src="https://img.shields.io/cocoapods/p/CleanyModal.svg?style=flat"/></a>
+</p>
 
-[![Version](https://img.shields.io/cocoapods/v/CleanyModal.svg?style=flat)](http://cocoapods.org/pods/CleanyModal)
-[![License](https://img.shields.io/cocoapods/l/CleanyModal.svg?style=flat)](http://cocoapods.org/pods/CleanyModal)
-[![Platform](https://img.shields.io/cocoapods/p/CleanyModal.svg?style=flat)](http://cocoapods.org/pods/CleanyModal)
+<p align="center"><strong>CleanyModal</strong> is a good way to use UI-Customised alerts with ease</p>
 
 ## Features
 
@@ -13,11 +19,13 @@
 
 ## Demo
 
-Present customizable and clean alert from provided built-in methods
+<img src="https://user-images.githubusercontent.com/3198863/51548417-91058180-1e68-11e9-955b-2a7238a09afb.gif" width="250" height="542" />
 
-<img src="https://user-images.githubusercontent.com/3198863/38334727-7820f070-385c-11e8-9aa3-d49bf9262a39.png" width="250" height="445" /> <img src="https://user-images.githubusercontent.com/3198863/38334725-77f10d24-385c-11e8-9e94-89d653628748.png" width="250" height="445" /> <img src="https://user-images.githubusercontent.com/3198863/38334726-780677b8-385c-11e8-9d69-ca5950520252.png" width="250" height="445" /> <img src="https://user-images.githubusercontent.com/3198863/44787753-4c670a00-ab98-11e8-869e-a219c82633c0.jpeg" width="250" height="542" />
+Present highly customizable and clean alert from provided built-in methods:
 
-Use root modal system to present your custom components and use only the navigation/interaction stuff
+<img src="https://user-images.githubusercontent.com/3198863/44787753-4c670a00-ab98-11e8-869e-a219c82633c0.jpeg" width="250" height="542" />
+
+Use root modal system to present your custom components and use only the navigation/interaction stuff:
 
 <img src="https://user-images.githubusercontent.com/3198863/38334728-783ae638-385c-11e8-82bf-b6fa65e528ce.jpeg" width="250" height="445" />
 
