@@ -120,6 +120,12 @@ open class CleanyAlertViewController: CleanyModalViewController {
         view.layoutIfNeeded()
     }
     
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        view.endEditing(true)
+    }
+    
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
