@@ -44,7 +44,7 @@ open class CleanyModalViewController: UIViewController {
     
     @IBAction open func handleGesture(_ sender: UIPanGestureRecognizer) {
 
-        let percentThreshold: CGFloat = 0.15
+        let percentThreshold: CGFloat = 0.10
       
         let translation = sender.translation(in: view)
         let velocity = sender.velocity(in: view)
