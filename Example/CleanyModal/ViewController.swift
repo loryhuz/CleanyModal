@@ -27,11 +27,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showBasicAlertAction(_ sender: UIButton) {
-        let alertData = CleanyModalBasicData(
+        let alertConfig = CleanyAlertConfig(
             title: "Hello world",
             message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed massa a magna semper semper a eget justo",
             iconImgName: "warning_icon")
-        let alert = MyAlertViewController(data: alertData)
+        let alert = MyAlertViewController(config: alertConfig)
         
         alert.addAction(CleanyAlertAction(title: "OK", style: .default))
         alert.addAction(CleanyAlertAction(title: "Cancel", style: .cancel))
@@ -40,16 +40,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showTextfieldAlertAction(_ sender: UIButton) {        
-        let alertData = CleanyModalBasicData(
+        let alertConfig = CleanyAlertConfig(
             title: "Password forgotten ?",
             message: "We'll regenerate your password and send the new one in your mail inbox",
             iconImgName: nil)
-        let alert = MyAlertViewController(data: alertData)
+        let alert = MyAlertViewController(config: alertConfig)
         alert.addTextField { textField in
             textField.placeholder = "Enter your e-mail"
             textField.font = UIFont.systemFont(ofSize: 12)
             textField.autocorrectionType = .no
             textField.keyboardType = .emailAddress
+            textField.keyboardAppearance = .dark
         }
         
         alert.addAction(CleanyAlertAction(title: "Send new password", style: .default, handler: { action in
@@ -62,18 +63,12 @@ class ViewController: UIViewController {
 }
 
 class MyAlertViewController: CleanyAlertViewController {
-    override init(data: CleanyModalBasicData, style: CleanyModalStyle? = nil) {
-        if style == nil {
-            let defaultStyle = CleanyModalStyle(
-                tintColor: UIColor(red: 8/255, green: 61/255, blue: 119/255, alpha: 1),
-                destructiveColor: UIColor(red: 218/255, green: 65/255, blue: 103/255, alpha: 1)
-            )
-            super.init(data: data, style: defaultStyle)
-        } else {
-            super.init(data: data, style: style)
-        }
+    override init(config: CleanyAlertConfig) {
+        config.styleSettings[.tintColor] = UIColor(red: 8/255, green: 61/255, blue: 119/255, alpha: 1)
+        config.styleSettings[.destructiveColor] = UIColor(red: 218/255, green: 65/255, blue: 103/255, alpha: 1)
+        super.init(config: config)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

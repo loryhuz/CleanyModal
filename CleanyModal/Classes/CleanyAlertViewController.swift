@@ -35,25 +35,18 @@ open class CleanyAlertViewController: CleanyModalViewController {
         get { return _actions }
     }
     
-    public let data: CleanyModalBasicData
-    internal var style = CleanyModalStyle(
-        tintColor: UIButton.init(type: .system).titleColor(for: .normal),
-        cornerRadius: 15)
+    public let config: CleanyAlertConfig
     
-    public init(data: CleanyModalBasicData, style: CleanyModalStyle? = nil) {
-        self.data = data
+    public init(config: CleanyAlertConfig) {
+        self.config = config
         super.init(nibName: "CleanyAlertViewController", bundle: Bundle(for: CleanyAlertViewController.self))
         
         precondition(
-            data.title != nil || data.message != nil, "NOPE ! Why you would like to show an alert without at least a title OR a message ?!"
+            config.title != nil || config.message != nil, "NOPE ! Why you would like to show an alert without at least a title OR a message ?!"
         )
         
         modalPresentationStyle = .overFullScreen
         modalTransitionStyle = .crossDissolve
-        
-        if style != nil {
-            self.style = style!
-        }
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -66,23 +59,23 @@ open class CleanyAlertViewController: CleanyModalViewController {
         view.frame = UIScreen.main.bounds
         view.layoutIfNeeded()
         
-        if self.data.title == nil {
+        if config.title == nil {
             contentStackView.removeArrangedSubview(titleLB)
-        } else if self.data.message == nil {
+        } else if config.message == nil {
             contentStackView.removeArrangedSubview(messageLB)
         }
         
-        titleLB.text = self.data.title
-        messageLB.text = self.data.message
-        iconIV.image = self.data.icon
+        titleLB.text = config.title
+        messageLB.text = config.message
+        iconIV.image = config.icon
         
-        titleLB.textColor = style.textColor ?? titleLB.textColor
-        titleLB.font = style.titleFont ?? titleLB.font
+        titleLB.textColor = config.styleSettings[.textColor] ?? titleLB.textColor
+        titleLB.font = config.styleSettings[.titleFont] ?? titleLB.font
         
-        messageLB.textColor = style.textColor ?? messageLB.textColor
-        messageLB.font = style.messageFont ?? messageLB.font
+        messageLB.textColor = config.styleSettings[.textColor] ?? messageLB.textColor
+        messageLB.font = config.styleSettings[.messageFont] ?? messageLB.font
         
-        if self.data.icon == nil {
+        if config.icon == nil {
             iconIV.removeFromSuperview()
         }
         
@@ -165,7 +158,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
         textField.layer.borderColor = UIColor(white: 200.0/255.0, alpha: 1.0).cgColor
         textField.layer.borderWidth = 1
         textField.textAlignment = .center
-        textField.tintColor = style.tintColor ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
+        textField.tintColor = config.styleSettings[.tintColor] ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
         
         _textFields?.append(textField)
         
@@ -184,7 +177,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
         textView.layer.cornerRadius = 7
         textView.layer.borderColor = UIColor(white: 200.0/255.0, alpha: 1.0).cgColor
         textView.layer.borderWidth = 1
-        textView.tintColor = style.tintColor ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
+        textView.tintColor = config.styleSettings[.tintColor] ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
         
         _textViews?.append(textView)
         
@@ -198,11 +191,11 @@ open class CleanyAlertViewController: CleanyModalViewController {
     // MARK: - Private methods (helpers)
     
     private func applyStyle() {
-        if let cornerRadius = style.cornerRadius {
+        if let cornerRadius = config.styleSettings[.cornerRadius] {
             alertView.layer.cornerRadius = cornerRadius
         }
         
-        if let tintColor = style.tintColor {
+        if let tintColor = config.styleSettings[.tintColor] {
             iconIV.tintColor = tintColor
         }
     }
@@ -223,7 +216,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
             let count = _actions?.count ?? 0
             actionsTV.separatorStyle = _actions != nil && count > 1 ? .singleLine : .none
             
-            actionsTVHeight.constant = style.actionCellHeight * CGFloat(count) + kFooterMargin
+            actionsTVHeight.constant = (config.styleSettings[.actionCellHeight] ?? 60.0) * CGFloat(count) + kFooterMargin
             
             if actions != nil && count > 1 {
                 bottomMarginFromActionsTV.constant = 0
@@ -251,7 +244,7 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
         
         action?.cell = cell
         
-        if let font = style.actionsFont {
+        if let font = config.styleSettings[.actionsFont] {
             cell.textLabel?.font = font
         }
         
@@ -261,14 +254,19 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
         let actionColor: UIColor!
         switch action?.style ?? .default {
         case .destructive:
-            actionColor = style.destructiveColor ?? UIColor.red
+            actionColor = config.styleSettings[.destructiveColor] ?? UIColor.red
         case .default:
-            actionColor = style.tintColor ?? style.defaultActionColor ?? style.textColor ?? UIColor.black
+            actionColor = config.styleSettings[.tintColor] ??
+                config.styleSettings[.defaultActionColor] ??
+                config.styleSettings[.textColor] ??
+                UIColor.black
         case .disabled:
-            let color = style.defaultActionColor ?? style.textColor ?? UIColor.black
+            let color = config.styleSettings[.defaultActionColor] ??
+                config.styleSettings[.textColor] ??
+                UIColor.black
             actionColor = color.withAlphaComponent(0.5)
         default:
-            actionColor = style.defaultActionColor ?? UIColor.black
+            actionColor = config.styleSettings[.defaultActionColor] ?? UIColor.black
         }
         
         cell.textLB?.textColor = actionColor
@@ -294,7 +292,7 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return style.actionCellHeight
+        return config.styleSettings[.actionCellHeight] ?? 60.0
     }
     
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

@@ -7,13 +7,19 @@
 
 import UIKit
 
-public struct CleanyModalBasicData {
+public struct CleanyAlertConfig {
     
     public let title: String?
     public let message: String?
     public let icon: UIImage?
     
-    public init(title: String?, message: String?, iconImgName: String? = nil) {
+    public var styleSettings = StyleSettings()
+    
+    public init(
+        title: String?,
+        message: String?,
+        iconImgName: String? = nil) {
+        
         self.title = title
         self.message = message
         
@@ -22,36 +28,66 @@ public struct CleanyModalBasicData {
         } else {
             self.icon = nil
         }
+        
+        applyDefaultStyleSettings()
+    }
+    
+    private func applyDefaultStyleSettings() {
+        styleSettings.set(key: .cornerRadius, value: 15)
+        styleSettings.set(key: .actionCellHeight, value: 60)
+        styleSettings.set(key: .textColor, value: .black)
+        styleSettings.set(key: .destructiveColor, value: .red)
     }
 }
 
-public struct CleanyModalStyle {
+public extension CleanyAlertConfig {
     
-    let tintColor: UIColor?
-    let cornerRadius: CGFloat?
-    
-    let textColor: UIColor?
-    let defaultActionColor: UIColor?
-    let destructiveColor: UIColor?
-    
-    let actionCellHeight: CGFloat
-    
-    let titleFont: UIFont?
-    let messageFont: UIFont?
-    let actionsFont: UIFont?
-    
-    public init(tintColor: UIColor? = nil, cornerRadius: CGFloat? = nil, textColor: UIColor? = nil,
-                defaultActionColor: UIColor? = nil, destructiveColor: UIColor? = nil, actionCellHeight: CGFloat = 60,
-                titleFont: UIFont? = nil, messageFont: UIFont? = nil, actionsFont: UIFont? = nil) {
+    public class StyleSettings {
         
-        self.tintColor = tintColor
-        self.cornerRadius = cornerRadius ?? 15
-        self.textColor = textColor ?? UIColor.black
-        self.defaultActionColor = defaultActionColor ?? textColor ?? UIColor.black
-        self.destructiveColor = destructiveColor ?? UIColor.red
-        self.actionCellHeight = actionCellHeight
-        self.titleFont = titleFont
-        self.messageFont = messageFont
-        self.actionsFont = actionsFont
+        fileprivate var values = [String: Any]()
+        
+        public subscript<T>(_ key: CleanyAlertConfig.StyleKey<T>) -> T? {
+            get {
+                return get(key: key)
+            }
+            set {
+                set(key: key, value: newValue)
+            }
+        }
+        
+        fileprivate func get<T>(key: CleanyAlertConfig.StyleKey<T>) -> T? {
+            return values[key.key] as? T
+        }
+        
+        fileprivate func set<T>(key: CleanyAlertConfig.StyleKey<T>, value: T?) {
+            values[key.key] = value
+        }
     }
+    
+    public class StyleKeys: Hashable {
+        let key: String
+        public init(_ key: String) { self.key = key }
+        public static func == (lhs: StyleKeys, rhs: StyleKeys) -> Bool { return lhs.key == rhs.key }
+        public var hashValue: Int { return key.hashValue }
+    }
+    
+    public class StyleKey<ValueType>: CleanyAlertConfig.StyleKeys { }
+    
+}
+
+public extension CleanyAlertConfig.StyleKeys {
+    
+    public static let tintColor = CleanyAlertConfig.StyleKey<UIColor>("tintColor")
+    public static let cornerRadius = CleanyAlertConfig.StyleKey<CGFloat>("cornerRadius")
+    
+    public static let textColor = CleanyAlertConfig.StyleKey<UIColor>("textColor")
+    public static let defaultActionColor = CleanyAlertConfig.StyleKey<UIColor>("defaultActionColor")
+    public static let destructiveColor = CleanyAlertConfig.StyleKey<UIColor>("destructiveColor")
+    
+    public static let actionCellHeight = CleanyAlertConfig.StyleKey<CGFloat>("actionCellHeight")
+    
+    public static let titleFont = CleanyAlertConfig.StyleKey<UIFont>("titleFont")
+    public static let messageFont = CleanyAlertConfig.StyleKey<UIFont>("messageFont")
+    public static let actionsFont = CleanyAlertConfig.StyleKey<UIFont>("actionsFont")
+    
 }
