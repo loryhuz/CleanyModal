@@ -30,17 +30,40 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 Present a clean Alert with default style:
 
 ```swift
-let alertData = CleanyModalBasicData(
+let alertConfig = CleanyAlertConfig(
   title: "Hello world",
   message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed massa a magna semper semper a eget justo")
-
-let alert = CleanyAlertViewController(data: alertData)
+let alert = MyAlertViewController(config: alertConfig)
 
 alert.addAction(CleanyAlertAction(title: "OK", style: .default))
 alert.addAction(CleanyAlertAction(title: "Cancel", style: .cancel))
 
 present(alert, animated: true, completion: nil)
 ```
+
+Apply your own style/theme easily :
+
+```swift
+class MyAlertViewController: CleanyAlertViewController {
+  override init(config: CleanyAlertConfig) {
+    config.styleSettings[.tintColor] = .yellow
+    config.styleSettings[.destructiveColor] = .pink
+    super.init(config: config)
+  }
+}
+```
+Need to push customization of your Alerts further ? 
+
+Extend styles settings keys :
+
+```swift
+public extension CleanyAlertConfig.StyleKeys {
+  public static let shadowOffset = CleanyAlertConfig.StyleKey<CGSize>("shadowOffset")
+}
+```
+Then apply these news keys in viewDidLoad() implementation of your custom alert.
+If you only want to present a custom component (not an alert) as a modal, inherit directly form *CleanyModalViewController*
+
 See example project to see all abilities to customize, enjoy !
 
 ## Requirements
@@ -53,7 +76,7 @@ CleanyModal is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CleanyModal', '~> 0.1.0beta'
+pod 'CleanyModal', '~> 0.1.1'
 ```
 
 ## Author

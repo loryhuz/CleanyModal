@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CleanyModal'
-  s.version          = '0.1.0beta'
+  s.version          = '0.1.1'
   s.summary          = 'Swift UI Kit to present clean alert/modal'
 
 # This description is used to generate tags and improve search results.
@@ -32,12 +32,4 @@ Swift UI Kit to help to present clean and beautiful modal/alert in your iOS apps
 
   s.source_files = 'CleanyModal/Classes/**/*'
   s.resources = 'CleanyModal/Classes/*.xib'
-  
-  # s.resource_bundles = {
-  #   'CleanyModal' => ['CleanyModal/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
