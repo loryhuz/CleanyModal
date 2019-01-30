@@ -14,11 +14,25 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		9C0E51B820726BFE0065C9F0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E51B720726BFE0065C9F0 /* TableViewController.swift */; };
 		9C58228521F71C45002503A7 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C58228421F71C45002503A7 /* CHANGELOG.md */; };
+		9CF1551D22025F6300DA5F92 /* CleanyModal_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1551C22025F6300DA5F92 /* CleanyModal_Tests.swift */; };
+		CA45036466E080CD7FB396ED /* Pods_CleanyModal_Example_CleanyModal_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5043748FE298D0042FFA95 /* Pods_CleanyModal_Example_CleanyModal_Tests.framework */; };
 		DA7B913EE90096B3975BB507 /* Pods_CleanyModal_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 815B60958608719065E68B1E /* Pods_CleanyModal_Example.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9CF1551F22025F6300DA5F92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = CleanyModal_Example;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		01B1F3735883510D98330C6A /* Pods-CleanyModal_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanyModal_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanyModal_Example/Pods-CleanyModal_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		03BC3ED2E1E9FB8D08668179 /* Pods-CleanyModal_Example-CleanyModal_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanyModal_Example-CleanyModal_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanyModal_Example-CleanyModal_Tests/Pods-CleanyModal_Example-CleanyModal_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		04BC9C8E298A5AD7962E05DD /* Pods-CleanyModal_Example-CleanyModal_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanyModal_Example-CleanyModal_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanyModal_Example-CleanyModal_Tests/Pods-CleanyModal_Example-CleanyModal_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		15FF4BF7F6D8D53211689800 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		16A9F3DEC18FFC6D1CE65692 /* Pods-CleanyModal_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanyModal_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanyModal_Tests/Pods-CleanyModal_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		237D417701301C46DBBCA0D2 /* CleanyModal.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CleanyModal.podspec; path = ../CleanyModal.podspec; sourceTree = "<group>"; };
@@ -29,12 +43,17 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6B5043748FE298D0042FFA95 /* Pods_CleanyModal_Example_CleanyModal_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanyModal_Example_CleanyModal_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8A2828338056B4450A908E /* Pods-CleanyModal_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanyModal_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanyModal_Example/Pods-CleanyModal_Example.release.xcconfig"; sourceTree = "<group>"; };
 		815B60958608719065E68B1E /* Pods_CleanyModal_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanyModal_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A564CA55C5D1C69967E8902 /* Pods_CleanyModal_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanyModal_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0E51B720726BFE0065C9F0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9C58228421F71C45002503A7 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		9CDAD435206D5E6F007E048E /* CleanyModal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleanyModal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CF1551A22025F6300DA5F92 /* CleanyModal_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanyModal_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CF1551C22025F6300DA5F92 /* CleanyModal_Tests.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = CleanyModal_Tests.swift; sourceTree = "<group>"; tabWidth = 4; };
+		9CF1551E22025F6300DA5F92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CF1552422025FD600DA5F92 /* CleanyModal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleanyModal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBB7D04139CB4FE1636318F /* Pods-CleanyModal_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanyModal_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanyModal_Tests/Pods-CleanyModal_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA2059445642C7928AFCF3FE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,6 +67,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9CF1551722025F6300DA5F92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA45036466E080CD7FB396ED /* Pods_CleanyModal_Example_CleanyModal_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -58,6 +85,8 @@
 				7A8A2828338056B4450A908E /* Pods-CleanyModal_Example.release.xcconfig */,
 				AEBB7D04139CB4FE1636318F /* Pods-CleanyModal_Tests.debug.xcconfig */,
 				16A9F3DEC18FFC6D1CE65692 /* Pods-CleanyModal_Tests.release.xcconfig */,
+				04BC9C8E298A5AD7962E05DD /* Pods-CleanyModal_Example-CleanyModal_Tests.debug.xcconfig */,
+				03BC3ED2E1E9FB8D08668179 /* Pods-CleanyModal_Example-CleanyModal_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -67,6 +96,7 @@
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for CleanyModal */,
+				9CF1551B22025F6300DA5F92 /* CleanyModal_Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				42297CE26325C3DC2BEC5031 /* Pods */,
 				8424B5AD739FE5296E5426CC /* Frameworks */,
@@ -77,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* CleanyModal_Example.app */,
+				9CF1551A22025F6300DA5F92 /* CleanyModal_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,11 +149,22 @@
 		8424B5AD739FE5296E5426CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CF1552422025FD600DA5F92 /* CleanyModal.framework */,
 				9CDAD435206D5E6F007E048E /* CleanyModal.framework */,
 				815B60958608719065E68B1E /* Pods_CleanyModal_Example.framework */,
 				8A564CA55C5D1C69967E8902 /* Pods_CleanyModal_Tests.framework */,
+				6B5043748FE298D0042FFA95 /* Pods_CleanyModal_Example_CleanyModal_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CF1551B22025F6300DA5F92 /* CleanyModal_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9CF1551C22025F6300DA5F92 /* CleanyModal_Tests.swift */,
+				9CF1551E22025F6300DA5F92 /* Info.plist */,
+			);
+			path = CleanyModal_Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +179,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				843B73AC289F4FF30C391B88 /* [CP] Embed Pods Frameworks */,
-				F396054454A369C774FFD98E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,13 +189,33 @@
 			productReference = 607FACD01AFB9204008FA782 /* CleanyModal_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9CF1551922025F6300DA5F92 /* CleanyModal_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CF1552322025F6300DA5F92 /* Build configuration list for PBXNativeTarget "CleanyModal_Tests" */;
+			buildPhases = (
+				79D9213AA0732D17A9539A00 /* [CP] Check Pods Manifest.lock */,
+				9CF1551622025F6300DA5F92 /* Sources */,
+				9CF1551722025F6300DA5F92 /* Frameworks */,
+				9CF1551822025F6300DA5F92 /* Resources */,
+				FC8586CE5021676DB34E5E00 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CF1552022025F6300DA5F92 /* PBXTargetDependency */,
+			);
+			name = CleanyModal_Tests;
+			productName = CleanyModal_Tests;
+			productReference = 9CF1551A22025F6300DA5F92 /* CleanyModal_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -162,6 +223,11 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 5KVMHF799N;
 						LastSwiftMigration = 1010;
+					};
+					9CF1551922025F6300DA5F92 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -179,6 +245,7 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* CleanyModal_Example */,
+				9CF1551922025F6300DA5F92 /* CleanyModal_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -195,16 +262,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9CF1551822025F6300DA5F92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		79D9213AA0732D17A9539A00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CleanyModal_Example-CleanyModal_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		843B73AC289F4FF30C391B88 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CleanyModal_Example/Pods-CleanyModal_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CleanyModal_Example/Pods-CleanyModal_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CleanyModal/CleanyModal.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -213,7 +309,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanyModal_Example/Pods-CleanyModal_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CleanyModal_Example/Pods-CleanyModal_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8458BBA2B8E9313F16C1DDEC /* [CP] Check Pods Manifest.lock */ = {
@@ -234,19 +330,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F396054454A369C774FFD98E /* [CP] Copy Pods Resources */ = {
+		FC8586CE5021676DB34E5E00 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CleanyModal_Example-CleanyModal_Tests/Pods-CleanyModal_Example-CleanyModal_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CleanyModal/CleanyModal.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CleanyModal.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanyModal_Example/Pods-CleanyModal_Example-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CleanyModal_Example-CleanyModal_Tests/Pods-CleanyModal_Example-CleanyModal_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -262,7 +365,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9CF1551622025F6300DA5F92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CF1551D22025F6300DA5F92 /* CleanyModal_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9CF1552022025F6300DA5F92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* CleanyModal_Example */;
+			targetProxy = 9CF1551F22025F6300DA5F92 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
@@ -417,6 +536,61 @@
 			};
 			name = Release;
 		};
+		9CF1552122025F6300DA5F92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04BC9C8E298A5AD7962E05DD /* Pods-CleanyModal_Example-CleanyModal_Tests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CleanyModal_Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.CleanyModal-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanyModal_Example.app/CleanyModal_Example";
+			};
+			name = Debug;
+		};
+		9CF1552222025F6300DA5F92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03BC3ED2E1E9FB8D08668179 /* Pods-CleanyModal_Example-CleanyModal_Tests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CleanyModal_Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.CleanyModal-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanyModal_Example.app/CleanyModal_Example";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -434,6 +608,15 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CF1552322025F6300DA5F92 /* Build configuration list for PBXNativeTarget "CleanyModal_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CF1552122025F6300DA5F92 /* Debug */,
+				9CF1552222025F6300DA5F92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

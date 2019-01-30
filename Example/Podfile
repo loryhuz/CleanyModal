@@ -3,10 +3,7 @@ use_frameworks!
 target 'CleanyModal_Example' do
   pod 'CleanyModal', :path => '../'
 
-#  target 'CleanyModal_Tests' do
-#    inherit! :search_paths
+  target 'CleanyModal_Tests' do
 
-#    pod 'Quick', '~> 1.2.0'
-#    pod 'Nimble', '~> 7.0.2'
-#  end
+  end
 end
