@@ -43,8 +43,8 @@ let alertConfig = CleanyAlertConfig(
   message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed massa a magna semper semper a eget justo")
 let alert = MyAlertViewController(config: alertConfig)
 
-alert.addAction(CleanyAlertAction(title: "OK", style: .default))
-alert.addAction(CleanyAlertAction(title: "Cancel", style: .cancel))
+alert.addAction(title: "OK", style: .default)
+alert.addAction(title: "Cancel", style: .cancel)
 
 present(alert, animated: true, completion: nil)
 ```

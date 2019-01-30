@@ -122,6 +122,11 @@ open class CleanyAlertViewController: CleanyModalViewController {
         handleTableViewActions()
     }
     
+    open func addAction(title: String?, style: CleanyAlertActionStyle, handler: ((CleanyAlertAction) -> ())? = nil) {
+        let action = CleanyAlertAction(title: title, style: style, handler: handler)
+        addAction(action)
+    }
+    
     open func replaceAction(_ action: CleanyAlertAction, atIndex index: Int) {
         _actions?[index] = action
         

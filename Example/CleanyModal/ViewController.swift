@@ -33,8 +33,8 @@ class ViewController: UIViewController {
             iconImgName: "warning_icon")
         let alert = MyAlertViewController(config: alertConfig)
         
-        alert.addAction(CleanyAlertAction(title: "OK", style: .default))
-        alert.addAction(CleanyAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(title: "OK", style: .default)
+        alert.addAction(title: "Cancel", style: .cancel)
         
         present(alert, animated: true, completion: nil)
     }
@@ -53,10 +53,10 @@ class ViewController: UIViewController {
             textField.keyboardAppearance = .dark
         }
         
-        alert.addAction(CleanyAlertAction(title: "Send new password", style: .default, handler: { action in
+        alert.addAction(title: "Send new password", style: .default, handler: { action in
             print("email in textfield is: \(alert.textFields?.first?.text ?? "empty")")
-        }))
-        alert.addAction(CleanyAlertAction(title: "Cancel", style: .cancel))
+        })
+        alert.addAction(title: "Cancel", style: .cancel)
         
         present(alert, animated: true, completion: nil)
     }
