@@ -20,14 +20,14 @@ open class CleanyAlertViewController: CleanyModalViewController {
     @IBOutlet public  var iconIV: UIImageView!
     @IBOutlet private var bottomMarginFromActionsTV: NSLayoutConstraint!
     
-    private var _textViews: [UITextView]? = nil
+    private var _stackedViews: [(view: UIView, height: CGFloat)]? = nil
+
     open var textViews: [UITextView]? {
-        get { return _textViews }
+        get { return _stackedViews?.compactMap({ $0.view as? UITextView }) }
     }
     
-    private var _textFields: [UITextField]? = nil
     open var textFields: [UITextField]? {
-        get { return _textFields }
+        get { return _stackedViews?.compactMap({ $0.view as? UITextField }) }
     }
     
     private var _actions: [CleanyAlertAction]? = nil
@@ -84,29 +84,16 @@ open class CleanyAlertViewController: CleanyModalViewController {
         handleTableViewActions()
         applyStyle()
         
-        textFields?.forEach({ textField in
-            contentStackView.addArrangedSubview(textField)
+        _stackedViews?.forEach({ viewTuple in
+            contentStackView.addArrangedSubview(viewTuple.view)
             contentStackView.addConstraint(NSLayoutConstraint(
-                item: textField,
+                item: viewTuple.view,
                 attribute: .height,
                 relatedBy: .equal,
                 toItem: nil,
                 attribute: .notAnAttribute,
                 multiplier: 1,
-                constant: 40)
-            )
-        })
-        
-        textViews?.forEach({ textView in
-            contentStackView.addArrangedSubview(textView)
-            contentStackView.addConstraint(NSLayoutConstraint(
-                item: textView,
-                attribute: .height,
-                relatedBy: .equal,
-                toItem: nil,
-                attribute: .notAnAttribute,
-                multiplier: 1,
-                constant: 100)
+                constant: viewTuple.height)
             )
         })
         
@@ -146,10 +133,6 @@ open class CleanyAlertViewController: CleanyModalViewController {
     }
     
     open func addTextField(configurationHandler: ((UITextField) -> Swift.Void)? = nil) {
-        if _textFields == nil {
-            _textFields = [UITextField]()
-        }
-        
         let frame = CGRect(x: 0, y: 0, width: 200, height: 100)
         let textField = UITextField(frame: frame)
         textField.borderStyle = .none
@@ -160,16 +143,12 @@ open class CleanyAlertViewController: CleanyModalViewController {
         textField.textAlignment = .center
         textField.tintColor = config.styleSettings[.tintColor] ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
         
-        _textFields?.append(textField)
+        addCustomViewInContentStack(textField, height: 40)
         
         configurationHandler?(textField)
     }
     
     open func addTextView(configurationHandler: ((UITextView) -> Swift.Void)? = nil) {
-        if _textViews == nil {
-            _textViews = [UITextView]()
-        }
-        
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let textView = UITextView(frame: frame)
         
@@ -178,14 +157,18 @@ open class CleanyAlertViewController: CleanyModalViewController {
         textView.layer.borderColor = UIColor(white: 200.0/255.0, alpha: 1.0).cgColor
         textView.layer.borderWidth = 1
         textView.tintColor = config.styleSettings[.tintColor] ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
-        
-        _textViews?.append(textView)
+    
+        addCustomViewInContentStack(textView, height: 100)
         
         configurationHandler?(textView)
     }
     
-    open func addCustomViewInContentStack(_ view: UIView) {
-        contentStackView.addArrangedSubview(view)
+    open func addCustomViewInContentStack(_ view: UIView, height: CGFloat) {
+        if _stackedViews == nil {
+            _stackedViews = [(view: UIView, height: CGFloat)]()
+        }
+        
+        _stackedViews?.append((view: view, height: height))
     }
     
     // MARK: - Private methods (helpers)
