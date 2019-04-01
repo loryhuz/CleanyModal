@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- Migrate to Swift 5
+- Add syntaxic sugar
+- Fix customView method
+
 ## 0.1.1
 
 - Migrate to Swift 4.2
