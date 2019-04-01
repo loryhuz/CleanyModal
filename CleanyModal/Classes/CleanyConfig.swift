@@ -42,7 +42,7 @@ public struct CleanyAlertConfig {
 
 public extension CleanyAlertConfig {
     
-    public class StyleSettings {
+    class StyleSettings {
         
         fileprivate var values = [String: Any]()
         
@@ -64,30 +64,30 @@ public extension CleanyAlertConfig {
         }
     }
     
-    public class StyleKeys: Hashable {
+    class StyleKeys: Hashable {
         let key: String
         public init(_ key: String) { self.key = key }
         public static func == (lhs: StyleKeys, rhs: StyleKeys) -> Bool { return lhs.key == rhs.key }
-        public var hashValue: Int { return key.hashValue }
+        public func hash(into hasher: inout Hasher) { hasher.combine(key) }
     }
     
-    public class StyleKey<ValueType>: CleanyAlertConfig.StyleKeys { }
+    class StyleKey<ValueType>: CleanyAlertConfig.StyleKeys { }
     
 }
 
 public extension CleanyAlertConfig.StyleKeys {
     
-    public static let tintColor = CleanyAlertConfig.StyleKey<UIColor>("tintColor")
-    public static let cornerRadius = CleanyAlertConfig.StyleKey<CGFloat>("cornerRadius")
+    static let tintColor = CleanyAlertConfig.StyleKey<UIColor>("tintColor")
+    static let cornerRadius = CleanyAlertConfig.StyleKey<CGFloat>("cornerRadius")
     
-    public static let textColor = CleanyAlertConfig.StyleKey<UIColor>("textColor")
-    public static let defaultActionColor = CleanyAlertConfig.StyleKey<UIColor>("defaultActionColor")
-    public static let destructiveColor = CleanyAlertConfig.StyleKey<UIColor>("destructiveColor")
+    static let textColor = CleanyAlertConfig.StyleKey<UIColor>("textColor")
+    static let defaultActionColor = CleanyAlertConfig.StyleKey<UIColor>("defaultActionColor")
+    static let destructiveColor = CleanyAlertConfig.StyleKey<UIColor>("destructiveColor")
     
-    public static let actionCellHeight = CleanyAlertConfig.StyleKey<CGFloat>("actionCellHeight")
+    static let actionCellHeight = CleanyAlertConfig.StyleKey<CGFloat>("actionCellHeight")
     
-    public static let titleFont = CleanyAlertConfig.StyleKey<UIFont>("titleFont")
-    public static let messageFont = CleanyAlertConfig.StyleKey<UIFont>("messageFont")
-    public static let actionsFont = CleanyAlertConfig.StyleKey<UIFont>("actionsFont")
+    static let titleFont = CleanyAlertConfig.StyleKey<UIFont>("titleFont")
+    static let messageFont = CleanyAlertConfig.StyleKey<UIFont>("messageFont")
+    static let actionsFont = CleanyAlertConfig.StyleKey<UIFont>("actionsFont")
     
 }

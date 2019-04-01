@@ -1,0 +1,6 @@
+framework module Pods_CleanyModal_Example_CleanyModal_Tests {
+  umbrella header "Pods-CleanyModal_Example-CleanyModal_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

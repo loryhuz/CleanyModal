@@ -63,7 +63,7 @@
 		759EE96C64EC51375518F0DF179F6F77 /* Pods-CleanyModal_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CleanyModal_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		76C98879B78D0A86A35A50ED920B7602 /* Pods-CleanyModal_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CleanyModal_Example-Info.plist"; sourceTree = "<group>"; };
 		7E7CB11D4F5A23C44A8BCF3184570E85 /* CleanyModal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanyModal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B511DD134916FA964CBB010FE8C6F15 /* CleanyModal.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = CleanyModal.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8B511DD134916FA964CBB010FE8C6F15 /* CleanyModal.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = CleanyModal.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		94E2CDEF9690310878662C5FD5C8D1DF /* Pods-CleanyModal_Example-CleanyModal_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CleanyModal_Example-CleanyModal_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		96515E8C3A3EEA93536094862E3F3B65 /* Pods-CleanyModal_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CleanyModal_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		98C5218DEA7407553D5A1915821ABBD4 /* CleanyModal-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CleanyModal-prefix.pch"; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C10631B5AEB3F4AB3605E3C690304451 /* Pods-CleanyModal_Example-CleanyModal_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CleanyModal_Example-CleanyModal_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C8E34D9A68FD6DF660981A0125DDC35E /* Pods-CleanyModal_Example-CleanyModal_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CleanyModal_Example-CleanyModal_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D23EF7AA942DB48B2CAEDC6B98DA1BAE /* CleanyConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CleanyConfig.swift; path = CleanyModal/Classes/CleanyConfig.swift; sourceTree = "<group>"; };
+		D23EF7AA942DB48B2CAEDC6B98DA1BAE /* CleanyConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = CleanyConfig.swift; path = CleanyModal/Classes/CleanyConfig.swift; sourceTree = "<group>"; tabWidth = 4; };
 		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D79806F6BF2C254E3377351BF8CEC8D9 /* Pods-CleanyModal_Example-CleanyModal_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CleanyModal_Example-CleanyModal_Tests-dummy.m"; sourceTree = "<group>"; };
 		DCCD6D4929256CCA66874B420EDCAE30 /* CleanyModal-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CleanyModal-dummy.m"; sourceTree = "<group>"; };
@@ -335,13 +335,19 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
+				TargetAttributes = {
+					5C2180AB1D8E117DE733E0A0552D8364 = {
+						LastSwiftMigration = 1020;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = 9E95EC380045A1D41EDA7A84C9CDB92E /* Products */;
@@ -584,7 +590,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -742,7 +748,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
