@@ -27,10 +27,9 @@ open class CleanyModalViewController: UIViewController {
         
         gestureRecognizer = UIPanGestureRecognizer(target: self, action: .handleGesture)
         alertView.addGestureRecognizer(gestureRecognizer)
-        
-        modalTransition.interactor.delegate = self
+      
         transitioningDelegate = modalTransition
-        
+      
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.keyboardNotification(notification:)),
@@ -106,14 +105,4 @@ open class CleanyModalViewController: UIViewController {
 
 fileprivate extension Selector {
     static let handleGesture = #selector(CleanyModalViewController.handleGesture(_:))
-}
-
-extension CleanyModalViewController: CleanyModalTransitionInteractorDelegate {
-    func hasFinishedTransition() {}
-    
-    func hasCancelledTransition() {
-        // Ensure auto-layout is doing well
-        self.alertViewCenterY.constant = 0
-        self.view.layoutIfNeeded()
-    }
 }

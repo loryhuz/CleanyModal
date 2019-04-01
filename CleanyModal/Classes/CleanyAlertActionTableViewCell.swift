@@ -9,15 +9,15 @@ import UIKit
 
 class CleanyAlertActionTableViewCell: UITableViewCell {
 
-    @IBOutlet var textLB: UILabel!
-    @IBOutlet private var iv: UIImageView!
+    @IBOutlet weak var textLB: UILabel!
+    @IBOutlet weak private var iv: UIImageView!
     
     var title: String? {
         didSet {
             textLB.text = title
         }
     }
-    
+
     var img: UIImage? {
         didSet {
             iv.image = img

@@ -79,7 +79,7 @@ public class CleanyModalDismisser: NSObject, UIViewControllerAnimatedTransitioni
             UIViewPropertyAnimator(duration: duration, timingParameters: UICubicTimingParameters(controlPoint1: CGPoint(x: 1, y: 0), controlPoint2: CGPoint(x: 0, y: 1)))
         
         sourceViewController.alertViewCenterY.constant += sourceViewController.alertView.center.y + (sourceViewController.alertView.frame.height / 2)
-        
+
         animator.addAnimations {
             sourceViewController.view.layoutIfNeeded()
             sourceViewController.view.backgroundColor = UIColor.clear

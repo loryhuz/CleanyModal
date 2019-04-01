@@ -12,13 +12,13 @@ private let kCellReuseIdentifier = "actionCell"
 
 open class CleanyAlertViewController: CleanyModalViewController {
     
-    @IBOutlet private var titleLB: UILabel!
-    @IBOutlet private var messageLB: UILabel!
-    @IBOutlet private var actionsTV: UITableView!
-    @IBOutlet public  var contentStackView: UIStackView!
-    @IBOutlet private var actionsTVHeight: NSLayoutConstraint!
-    @IBOutlet public  var iconIV: UIImageView!
-    @IBOutlet private var bottomMarginFromActionsTV: NSLayoutConstraint!
+    @IBOutlet weak private var titleLB: UILabel!
+    @IBOutlet weak private var messageLB: UILabel!
+    @IBOutlet weak private var actionsTV: UITableView!
+    @IBOutlet weak public  var contentStackView: UIStackView!
+    @IBOutlet weak private var actionsTVHeight: NSLayoutConstraint!
+    @IBOutlet weak public  var iconIV: UIImageView!
+    @IBOutlet weak private var bottomMarginFromActionsTV: NSLayoutConstraint!
     
     private var _stackedViews: [(view: UIView, height: CGFloat)]? = nil
 
@@ -273,10 +273,15 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
             action.handler?(action)
         } else {
             self.onDismissCallback?(self)
+            
             dismiss(animated: true) {
                 action.handler?(action)
             }
         }
+    }
+    
+    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return config.styleSettings[.actionCellHeight] ?? 60.0
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
