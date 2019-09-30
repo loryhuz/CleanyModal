@@ -14,8 +14,8 @@
 
 - [x] Present some kind of clean alerts (With same API as UIAlertViewController)
 - [x] Add easily Textfields or Custom views as an Alert contains content UIStackView
-- [x] Dismiss modal/alert from interaction gesture 
 - [x] Present full-custom components as modal from a container view
+- [x] iOS 13 compatible with dark/light mode implemented by default
 
 ## Demo
 

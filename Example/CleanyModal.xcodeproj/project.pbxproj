@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		9C0E51B820726BFE0065C9F0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E51B720726BFE0065C9F0 /* TableViewController.swift */; };
 		9C58228521F71C45002503A7 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C58228421F71C45002503A7 /* CHANGELOG.md */; };
+		9CC8549A234234990013E434 /* NativeModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC85499234234990013E434 /* NativeModalViewController.swift */; };
 		9CF1551D22025F6300DA5F92 /* CleanyModal_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1551C22025F6300DA5F92 /* CleanyModal_Tests.swift */; };
 		CA45036466E080CD7FB396ED /* Pods_CleanyModal_Example_CleanyModal_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5043748FE298D0042FFA95 /* Pods_CleanyModal_Example_CleanyModal_Tests.framework */; };
 		DA7B913EE90096B3975BB507 /* Pods_CleanyModal_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 815B60958608719065E68B1E /* Pods_CleanyModal_Example.framework */; };
@@ -49,6 +50,7 @@
 		8A564CA55C5D1C69967E8902 /* Pods_CleanyModal_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanyModal_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0E51B720726BFE0065C9F0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9C58228421F71C45002503A7 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		9CC85499234234990013E434 /* NativeModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeModalViewController.swift; sourceTree = "<group>"; };
 		9CDAD435206D5E6F007E048E /* CleanyModal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleanyModal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF1551A22025F6300DA5F92 /* CleanyModal_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanyModal_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF1551C22025F6300DA5F92 /* CleanyModal_Tests.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = CleanyModal_Tests.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -117,6 +119,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				9CC85499234234990013E434 /* NativeModalViewController.swift */,
 				9C0E51B720726BFE0065C9F0 /* TableViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -361,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				9CC8549A234234990013E434 /* NativeModalViewController.swift in Sources */,
 				9C0E51B820726BFE0065C9F0 /* TableViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

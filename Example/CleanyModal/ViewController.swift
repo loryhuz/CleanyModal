@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         alert.addAction(title: "OK", style: .default)
         alert.addAction(title: "Cancel", style: .cancel)
         
+        
         present(alert, animated: true, completion: nil)
     }
     
@@ -64,8 +65,7 @@ class ViewController: UIViewController {
 
 class MyAlertViewController: CleanyAlertViewController {
     override init(config: CleanyAlertConfig) {
-        config.styleSettings[.tintColor] = UIColor(red: 8/255, green: 61/255, blue: 119/255, alpha: 1)
-        config.styleSettings[.destructiveColor] = UIColor(red: 218/255, green: 65/255, blue: 103/255, alpha: 1)
+        config.styleSettings[.cornerRadius] = 18
         super.init(config: config)
     }
 

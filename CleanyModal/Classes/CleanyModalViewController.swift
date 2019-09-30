@@ -20,16 +20,26 @@ open class CleanyModalViewController: UIViewController {
     @IBOutlet public var alertViewCenterY: NSLayoutConstraint!
     @IBOutlet public var widthConstraint: NSLayoutConstraint!
 
-    private var gestureRecognizer: UIPanGestureRecognizer!
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        modalPresentationStyle = .overFullScreen
+        modalTransitionStyle = .crossDissolve
+    }
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        modalPresentationStyle = .overFullScreen
+        modalTransitionStyle = .crossDissolve
+    }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        gestureRecognizer = UIPanGestureRecognizer(target: self, action: .handleGesture)
-        alertView.addGestureRecognizer(gestureRecognizer)
-      
         transitioningDelegate = modalTransition
-      
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.keyboardNotification(notification:)),
@@ -37,33 +47,18 @@ open class CleanyModalViewController: UIViewController {
             object: nil)
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Actually custom transition doesn't work if you present an Alert in a modal controller with pageSheet style, need help on this :) Fallback on default transition then
+        if #available(iOS 13.0, *), self.presentingViewController?.presentingViewController != nil && self.presentingViewController?.modalPresentationStyle == .pageSheet {
+            transitioningDelegate = nil
+        }
+        
     }
     
-    @IBAction open func handleGesture(_ sender: UIPanGestureRecognizer) {
-
-        let percentThreshold: CGFloat = 0.10
-      
-        let translation = sender.translation(in: view)
-        let velocity = sender.velocity(in: view)
-        let verticalMovement = translation.y / self.view.bounds.height
-        let progress = min(max(verticalMovement, 0.0), 1.0)
-        let interactor = modalTransition.interactor
-        
-        switch sender.state {
-        case .began, .changed:
-            if velocity.y > 0 && interactor.hasStarted == false {
-                interactor.hasStarted = true
-                dismiss(animated: true, completion: nil)
-            }
-            interactor.shouldFinish = (progress > percentThreshold) && velocity.y > 0
-            interactor.update(progress)
-            interactor.completionSpeed = 1.0 - interactor.percentComplete
-        default:
-            interactor.hasStarted = false
-            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
-        }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Handle Keyboard/TextField notifification
@@ -101,8 +96,3 @@ open class CleanyModalViewController: UIViewController {
     }
 }
 
-// MARK: - Selectors
-
-fileprivate extension Selector {
-    static let handleGesture = #selector(CleanyModalViewController.handleGesture(_:))
-}

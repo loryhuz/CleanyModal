@@ -12,13 +12,23 @@ private let kCellReuseIdentifier = "actionCell"
 
 open class CleanyAlertViewController: CleanyModalViewController {
     
-    @IBOutlet weak private var titleLB: UILabel!
-    @IBOutlet weak private var messageLB: UILabel!
+    public enum Style: IntegerLiteralType {
+        // TODO: - ActionSheet
+        // case actionSheet
+        
+        case alert
+        
+    }
+    
     @IBOutlet weak private var actionsTV: UITableView!
-    @IBOutlet weak public  var contentStackView: UIStackView!
+    @IBOutlet weak private var alertViewBottom: NSLayoutConstraint!
     @IBOutlet weak private var actionsTVHeight: NSLayoutConstraint!
-    @IBOutlet weak public  var iconIV: UIImageView!
     @IBOutlet weak private var bottomMarginFromActionsTV: NSLayoutConstraint!
+    @IBOutlet weak private var messageLB: UILabel!
+    @IBOutlet weak private var titleLB: UILabel!
+    
+    @IBOutlet weak public  var contentStackView: UIStackView!
+    @IBOutlet weak public  var iconIV: UIImageView!
     
     private var _stackedViews: [(view: UIView, height: CGFloat)]? = nil
 
@@ -35,18 +45,33 @@ open class CleanyAlertViewController: CleanyModalViewController {
         get { return _actions }
     }
     
+    private let preferredStyle: Style
+    
     public let config: CleanyAlertConfig
     
     public init(config: CleanyAlertConfig) {
         self.config = config
-        super.init(nibName: "CleanyAlertViewController", bundle: Bundle(for: CleanyAlertViewController.self))
+        self.preferredStyle = Style.alert
         
+        super.init(nibName: "CleanyAlertViewController", bundle: Bundle(for: CleanyAlertViewController.self))
+
+        precondition(
+            config.title != nil || config.message != nil, "NOPE ! Why you would like to show an alert without at least a title OR a message ?!"
+        )
+    }
+    
+    public init(title: String?, message: String?, preferredStyle: CleanyAlertViewController.Style = .alert, styleSettings: CleanyAlertConfig.StyleSettings? = nil) {
+        let config = CleanyAlertConfig(title: title, message: message)
+
         precondition(
             config.title != nil || config.message != nil, "NOPE ! Why you would like to show an alert without at least a title OR a message ?!"
         )
         
-        modalPresentationStyle = .overFullScreen
-        modalTransitionStyle = .crossDissolve
+
+        self.config = config
+        self.preferredStyle = preferredStyle
+        
+        super.init(nibName: "CleanyAlertViewController", bundle: Bundle(for: CleanyAlertViewController.self))
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -64,6 +89,15 @@ open class CleanyAlertViewController: CleanyModalViewController {
         } else if config.message == nil {
             contentStackView.removeArrangedSubview(messageLB)
         }
+        
+//        switch preferredStyle {
+//        case .alert:
+//            alertViewCenterY = alertViewCenterY.setSafelyPriority(UILayoutPriority.required)
+//            alertViewBottom = alertViewBottom.setSafelyPriority(UILayoutPriority.defaultLow)
+//        case .actionSheet:
+//            alertViewCenterY = alertViewCenterY.setSafelyPriority(UILayoutPriority.defaultLow)
+//            alertViewBottom = alertViewBottom.setSafelyPriority(UILayoutPriority.required)
+//        }
         
         titleLB.text = config.title
         messageLB.text = config.message
@@ -96,7 +130,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
                 constant: viewTuple.height)
             )
         })
-        
+
         view.layoutIfNeeded()
     }
     
@@ -122,7 +156,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
         handleTableViewActions()
     }
     
-    open func addAction(title: String?, style: CleanyAlertActionStyle, handler: ((CleanyAlertAction) -> ())? = nil) {
+    open func addAction(title: String?, style: CleanyAlertAction.Style, handler: ((CleanyAlertAction) -> ())? = nil) {
         let action = CleanyAlertAction(title: title, style: style, handler: handler)
         addAction(action)
     }
@@ -297,9 +331,20 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
 
 open class CleanyAlertAction {
     
+    public enum Style: IntegerLiteralType {
+        
+        case `default`
+        
+        case cancel
+        
+        case destructive
+        
+        case disabled
+    }
+    
     open var title: String?
     
-    open var style: CleanyAlertActionStyle
+    open var style: CleanyAlertAction.Style
     
     open var handler: ((CleanyAlertAction) -> Swift.Void)? = nil
     
@@ -309,20 +354,11 @@ open class CleanyAlertAction {
     
     open var image: UIImage?
     
-    public init(title: String?, style: CleanyAlertActionStyle, handler: ((CleanyAlertAction) -> Swift.Void)? = nil) {
+    public init(title: String?, style: CleanyAlertAction.Style, handler: ((CleanyAlertAction) -> Swift.Void)? = nil) {
         self.title = title
         self.style = style
+
         self.handler = handler
     }
 }
 
-public enum CleanyAlertActionStyle: Int {
-    
-    case `default`
-    
-    case cancel
-    
-    case destructive
-    
-    case disabled
-}

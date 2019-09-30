@@ -14,6 +14,7 @@
 		6F75637FB8334A6D90F3EFAFD0D6422F /* CleanyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23EF7AA942DB48B2CAEDC6B98DA1BAE /* CleanyConfig.swift */; };
 		8EB2CE602E0D6667788532BBDB7A4F74 /* Pods-CleanyModal_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF51C5B9E8D2CE0AEA805B19C926EC3 /* Pods-CleanyModal_Example-dummy.m */; };
 		9A3C93D2B19D3BB115C23923035BAFC7 /* CleanyAlertViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 384980DB268B69183748A6F150182EEF /* CleanyAlertViewController.xib */; };
+		9C7E55A6230EC705004975AA /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E55A5230EC705004975AA /* NSLayoutConstraint+Extension.swift */; };
 		A04D89FEAC8C6F4D0270B8F8C54AABE8 /* CleanyAlertActionTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = E925025DD1E9CB928D1F8066F6658DB5 /* CleanyAlertActionTableViewCell.xib */; };
 		B233761DFE65558F1BE66CF4C96EF5FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
 		BACFB0B49530786397F7A18728BD37E8 /* CleanyModal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCD6D4929256CCA66874B420EDCAE30 /* CleanyModal-dummy.m */; };
@@ -67,6 +68,7 @@
 		94E2CDEF9690310878662C5FD5C8D1DF /* Pods-CleanyModal_Example-CleanyModal_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CleanyModal_Example-CleanyModal_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		96515E8C3A3EEA93536094862E3F3B65 /* Pods-CleanyModal_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CleanyModal_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		98C5218DEA7407553D5A1915821ABBD4 /* CleanyModal-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CleanyModal-prefix.pch"; sourceTree = "<group>"; };
+		9C7E55A5230EC705004975AA /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
 		AA6111FE039AD24663CC17DED69417E8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AA9EED76131E5F457656147D73DEEFCE /* CleanyModal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CleanyModal.xcconfig; sourceTree = "<group>"; };
 		AB95DC6359EE7FFC5EE8D3AA57004EEA /* CleanyModal-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CleanyModal-umbrella.h"; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 			);
 			sourceTree = "<group>";
 		};
+		9C7E55A4230EC6CD004975AA /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9C7E55A5230EC705004975AA /* NSLayoutConstraint+Extension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		9E95EC380045A1D41EDA7A84C9CDB92E /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +237,7 @@
 		EAF4C648153BA0DB266F298D76D01670 /* CleanyModal */ = {
 			isa = PBXGroup;
 			children = (
+				9C7E55A4230EC6CD004975AA /* Helper */,
 				124FA3FFE3EF52A490A9A8C62EC89915 /* CleanyAlertActionTableViewCell.swift */,
 				E925025DD1E9CB928D1F8066F6658DB5 /* CleanyAlertActionTableViewCell.xib */,
 				3BB515C2C39A8F591A88E5A7ABEB91C8 /* CleanyAlertViewController.swift */,
@@ -401,6 +412,7 @@
 				5A0E38830423D386AA983EC791E27F01 /* CleanyAlertActionTableViewCell.swift in Sources */,
 				A04D89FEAC8C6F4D0270B8F8C54AABE8 /* CleanyAlertActionTableViewCell.xib in Sources */,
 				F5851D9401DD2348D879D0C24D1826B4 /* CleanyAlertViewController.swift in Sources */,
+				9C7E55A6230EC705004975AA /* NSLayoutConstraint+Extension.swift in Sources */,
 				9A3C93D2B19D3BB115C23923035BAFC7 /* CleanyAlertViewController.xib in Sources */,
 				6F75637FB8334A6D90F3EFAFD0D6422F /* CleanyConfig.swift in Sources */,
 				BACFB0B49530786397F7A18728BD37E8 /* CleanyModal-dummy.m in Sources */,
@@ -584,6 +596,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 0.1.3;
 				MODULEMAP_FILE = "Target Support Files/CleanyModal/CleanyModal.modulemap";
 				PRODUCT_MODULE_NAME = CleanyModal;
 				PRODUCT_NAME = CleanyModal;
@@ -742,6 +755,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 0.1.3;
 				MODULEMAP_FILE = "Target Support Files/CleanyModal/CleanyModal.modulemap";
 				PRODUCT_MODULE_NAME = CleanyModal;
 				PRODUCT_NAME = CleanyModal;

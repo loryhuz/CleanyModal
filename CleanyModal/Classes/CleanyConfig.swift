@@ -35,8 +35,17 @@ public struct CleanyAlertConfig {
     private func applyDefaultStyleSettings() {
         styleSettings.set(key: .cornerRadius, value: 15)
         styleSettings.set(key: .actionCellHeight, value: 60)
-        styleSettings.set(key: .textColor, value: .black)
-        styleSettings.set(key: .destructiveColor, value: .red)
+        
+        if #available(iOS 13.0, *) {
+            styleSettings.set(key: .textColor, value: .label)
+            styleSettings.set(key: .defaultActionColor, value: .label)
+            styleSettings.set(key: .destructiveColor, value: .systemRed)
+            styleSettings.set(key: .tintColor, value: .systemBlue)
+        } else {
+            styleSettings.set(key: .tintColor, value: .blue)
+            styleSettings.set(key: .textColor, value: .black)
+            styleSettings.set(key: .destructiveColor, value: .red)
+        }
     }
 }
 

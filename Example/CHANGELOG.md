@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3
+
+- Fix iOS 13 transitions bug
+- Implemented Dark theme by default
+- Remove dismiss interaction gesture (not present by default in UIAlertController from Apple) + causing toruble for iOS 13 with new presentation style
+
 ## 0.1.2
 
 - Migrate to Swift 5

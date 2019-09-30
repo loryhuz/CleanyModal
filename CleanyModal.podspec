@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CleanyModal'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'Swift UI Kit to present clean alert/modal'
 
 # This description is used to generate tags and improve search results.
