@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- Another iOS 13 fix about transition
+
 ## 0.1.3
 
 - Fix iOS 13 transitions bug

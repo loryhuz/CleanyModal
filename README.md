@@ -84,7 +84,7 @@ CleanyModal is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CleanyModal', '~> 0.1.2'
+pod 'CleanyModal'
 ```
 
 ## Author

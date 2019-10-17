@@ -51,7 +51,7 @@ open class CleanyModalViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // Actually custom transition doesn't work if you present an Alert in a modal controller with pageSheet style, need help on this :) Fallback on default transition then
-        if #available(iOS 13.0, *), self.presentingViewController?.presentingViewController != nil && self.presentingViewController?.modalPresentationStyle == .pageSheet {
+        if #available(iOS 13.0, *) {
             transitioningDelegate = nil
         }
         

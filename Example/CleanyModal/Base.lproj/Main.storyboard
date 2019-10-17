@@ -146,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="-95" y="862"/>
         </scene>
-        <!--Native Modal View Controller-->
+        <!--View Controller-->
         <scene sceneID="uZK-nN-jTf">
             <objects>
-                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="774-ru-EBa" customClass="NativeModalViewController" customModule="CleanyModal_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="774-ru-EBa" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cpe-Aa-hqi"/>
                         <viewControllerLayoutGuide type="bottom" id="mP3-Aj-Yly"/>
@@ -158,25 +158,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmE-aR-y6i">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-Wn-mgI">
                                 <rect key="frame" x="151.5" y="308.5" width="72" height="30"/>
                                 <state key="normal" title="show alert"/>
                                 <connections>
-                                    <action selector="showAlert:" destination="774-ru-EBa" eventType="touchUpInside" id="I6l-X7-TkX"/>
+                                    <segue destination="Lfa-NL-Bgc" kind="presentation" id="nLz-A1-eQ8"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="FmE-aR-y6i" firstAttribute="centerX" secondItem="Hkv-Kn-eAg" secondAttribute="centerX" id="0fO-ag-iQY"/>
-                            <constraint firstItem="FmE-aR-y6i" firstAttribute="centerY" secondItem="Hkv-Kn-eAg" secondAttribute="centerY" id="geB-nh-nkw"/>
+                            <constraint firstItem="M0c-Wn-mgI" firstAttribute="centerY" secondItem="Hkv-Kn-eAg" secondAttribute="centerY" id="bwD-b1-UQh"/>
+                            <constraint firstItem="M0c-Wn-mgI" firstAttribute="centerX" secondItem="Hkv-Kn-eAg" secondAttribute="centerX" id="lsP-gh-F3x"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="udK-HB-vbm"/>
+                    <connections>
+                        <segue destination="Lfa-NL-Bgc" kind="presentation" id="A8q-JX-D6c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ruf-hX-TWj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="861"/>
+            <point key="canvasLocation" x="748" y="861"/>
+        </scene>
+        <!--Native Modal View Controller-->
+        <scene sceneID="0k0-ma-gtF">
+            <objects>
+                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="Lfa-NL-Bgc" customClass="NativeModalViewController" customModule="CleanyModal_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TYq-q7-sD4"/>
+                        <viewControllerLayoutGuide type="bottom" id="nzq-g0-5FP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZHZ-Jj-pMU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ku-Ew-jmn">
+                                <rect key="frame" x="151.5" y="308.5" width="72" height="30"/>
+                                <state key="normal" title="show alert"/>
+                                <connections>
+                                    <action selector="showAlert:" destination="Lfa-NL-Bgc" eventType="touchUpInside" id="Nzd-be-aLg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2Ku-Ew-jmn" firstAttribute="centerX" secondItem="ZHZ-Jj-pMU" secondAttribute="centerX" id="Ibs-SH-oWn"/>
+                            <constraint firstItem="2Ku-Ew-jmn" firstAttribute="centerY" secondItem="ZHZ-Jj-pMU" secondAttribute="centerY" id="NIT-HE-mbX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gft-hA-WhM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dop-Wh-zoH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="860"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="co7-5Q-vge">
@@ -224,4 +259,7 @@
             <point key="canvasLocation" x="1612" y="134"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="A8q-JX-D6c"/>
+    </inferredMetricsTieBreakers>
 </document>
