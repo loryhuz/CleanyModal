@@ -54,13 +54,13 @@ Apply your own style/theme easily :
 
 ```swift
 class MyAlertViewController: CleanyAlertViewController {
-init(title: String?, message: String?, imageName: String? = nil, preferredStyle: CleanyAlertViewController.Style = .alert) {
-    let styleSettings = CleanyAlertConfig.getDefaultStyleSettings()
-    styleSettings[.tintColor] = .yellow
-    styleSettings[.destructiveColor] = .pink
-    super.init(title: title, message: message, imageName: imageName, preferredStyle: preferredStyle, styleSettings: styleSettings)
+    init(title: String?, message: String?, imageName: String? = nil, preferredStyle: CleanyAlertViewController.Style = .alert) {
+        let styleSettings = CleanyAlertConfig.getDefaultStyleSettings()
+        styleSettings[.tintColor] = .yellow
+        styleSettings[.destructiveColor] = .pink
+        super.init(title: title, message: message, imageName: imageName, preferredStyle: preferredStyle, styleSettings: styleSettings)
+    }
 }
-
 ```
 Need to push customization of your Alerts further ? 
 
