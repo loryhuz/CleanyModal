@@ -7,32 +7,13 @@
 
 import UIKit
 
-public struct CleanyAlertConfig {
+public struct CleanyAlertConfig { }
+
+public extension CleanyAlertConfig {
     
-    public let title: String?
-    public let message: String?
-    public let icon: UIImage?
-    
-    public var styleSettings = StyleSettings()
-    
-    public init(
-        title: String?,
-        message: String?,
-        iconImgName: String? = nil) {
+    static func getDefaultStyleSettings() -> StyleSettings {
+        let styleSettings = StyleSettings()
         
-        self.title = title
-        self.message = message
-        
-        if iconImgName != nil {
-            self.icon = UIImage(named: iconImgName!)
-        } else {
-            self.icon = nil
-        }
-        
-        applyDefaultStyleSettings()
-    }
-    
-    private func applyDefaultStyleSettings() {
         styleSettings.set(key: .cornerRadius, value: 15)
         styleSettings.set(key: .actionCellHeight, value: 60)
         
@@ -46,10 +27,9 @@ public struct CleanyAlertConfig {
             styleSettings.set(key: .textColor, value: .black)
             styleSettings.set(key: .destructiveColor, value: .red)
         }
+        
+        return styleSettings
     }
-}
-
-public extension CleanyAlertConfig {
     
     class StyleSettings {
         

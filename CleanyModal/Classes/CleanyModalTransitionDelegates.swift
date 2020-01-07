@@ -78,7 +78,12 @@ public class CleanyModalDismisser: NSObject, UIViewControllerAnimatedTransitioni
             UIViewPropertyAnimator(duration: duration, dampingRatio: 100) :
             UIViewPropertyAnimator(duration: duration, timingParameters: UICubicTimingParameters(controlPoint1: CGPoint(x: 1, y: 0), controlPoint2: CGPoint(x: 0, y: 1)))
         
-        sourceViewController.alertViewCenterY.constant += sourceViewController.alertView.center.y + (sourceViewController.alertView.frame.height / 2)
+        if let actionSheet = sourceViewController as? CleanyAlertViewController, actionSheet.preferredStyle == .actionSheet {
+            sourceViewController.alertViewCenterY.constant += sourceViewController.alertView.center.y + (sourceViewController.alertView.frame.height / 2)
+        } else {
+            sourceViewController.alertViewCenterY.constant += sourceViewController.alertView.center.y + (sourceViewController.alertView.frame.height / 2)
+        }
+        
 
         animator.addAnimations {
             sourceViewController.view.layoutIfNeeded()
@@ -165,8 +170,18 @@ public class CleanyModalPresenter: NSObject, UIViewControllerAnimatedTransitioni
         let containerView = transitionContext.containerView
         containerView.insertSubview(targetViewController.view, belowSubview: sourceViewController.view)
         
+        let endBottomConstraintValue = targetViewController.alertViewBottom?.constant ?? 0
+        let endCenterYConstraintValue = targetViewController.alertViewCenterY.constant
+        
+        // Start value => out-of-screen
         targetViewController.alertViewCenterY.constant += targetViewController.alertView.center.y + (targetViewController.alertView.frame.height / 2)
+        targetViewController.alertViewBottom?.constant -= targetViewController.alertView.frame.height
+        // Apply
         targetViewController.view.layoutIfNeeded()
+        // End value to animate => center of screen
+        targetViewController.alertViewCenterY.constant = endCenterYConstraintValue
+        targetViewController.alertViewBottom?.constant = endBottomConstraintValue
+        
         targetViewController.view.alpha = 0
         
         CATransaction.begin()
@@ -174,7 +189,8 @@ public class CleanyModalPresenter: NSObject, UIViewControllerAnimatedTransitioni
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(controlPoints: 1, 0, 0, 1))
         CATransaction.setCompletionBlock {
             // Ensure layout is doing well
-            targetViewController.alertViewCenterY.constant = 0
+            targetViewController.alertViewCenterY.constant = endCenterYConstraintValue
+            targetViewController.alertViewBottom?.constant = endBottomConstraintValue
             targetViewController.view.layoutIfNeeded()
 
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
@@ -185,15 +201,8 @@ public class CleanyModalPresenter: NSObject, UIViewControllerAnimatedTransitioni
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
             targetViewController.view.alpha = 1
+            targetViewController.view.layoutIfNeeded()
         }
-        
-        targetViewController.alertView.layer.add(
-            self.animation(
-                for: "position",
-                value: CGPoint(
-                    x: targetViewController.view.bounds.midX,
-                    y: targetViewController.view.bounds.midY))
-            , forKey: "position")
 
         CATransaction.commit()
     }

@@ -9,21 +9,34 @@ import UIKit
 
 private let kFooterMargin: CGFloat = 0
 private let kCellReuseIdentifier = "actionCell"
+private let kCellDefaultHeight: CGFloat = 60.0
 
 open class CleanyAlertViewController: CleanyModalViewController {
     
     public enum Style: IntegerLiteralType {
-        // TODO: - ActionSheet
-        // case actionSheet
-        
+        case actionSheet
         case alert
         
+        var widthMultiplier: CGFloat {
+            switch self {
+            case .actionSheet:
+                return 0.90
+            default:
+                return 0.75
+            }
+        }
     }
     
+    @IBOutlet weak private var mainContentView: UIView!
+    
     @IBOutlet weak private var actionsTV: UITableView!
-    @IBOutlet weak private var alertViewBottom: NSLayoutConstraint!
+    
     @IBOutlet weak private var actionsTVHeight: NSLayoutConstraint!
     @IBOutlet weak private var bottomMarginFromActionsTV: NSLayoutConstraint!
+    
+    @IBOutlet weak private var actionsSheetCancelButton: UIButton?
+    @IBOutlet weak private var actionsSheetCancelButtonHeightConstraint: NSLayoutConstraint?
+    
     @IBOutlet weak private var messageLB: UILabel!
     @IBOutlet weak private var titleLB: UILabel!
     
@@ -45,30 +58,19 @@ open class CleanyAlertViewController: CleanyModalViewController {
         get { return _actions }
     }
     
-    private let preferredStyle: Style
+    public let preferredStyle: Style
+    public let styleSettings: CleanyAlertConfig.StyleSettings
     
-    public let config: CleanyAlertConfig
+    let dataSource: AlertModel
     
-    public init(config: CleanyAlertConfig) {
-        self.config = config
-        self.preferredStyle = Style.alert
+    public init(title: String?, message: String?, imageName: String? = nil, preferredStyle: CleanyAlertViewController.Style = .alert, styleSettings: CleanyAlertConfig.StyleSettings? = nil) {
         
-        super.init(nibName: "CleanyAlertViewController", bundle: Bundle(for: CleanyAlertViewController.self))
-
         precondition(
-            config.title != nil || config.message != nil, "NOPE ! Why you would like to show an alert without at least a title OR a message ?!"
-        )
-    }
-    
-    public init(title: String?, message: String?, preferredStyle: CleanyAlertViewController.Style = .alert, styleSettings: CleanyAlertConfig.StyleSettings? = nil) {
-        let config = CleanyAlertConfig(title: title, message: message)
-
-        precondition(
-            config.title != nil || config.message != nil, "NOPE ! Why you would like to show an alert without at least a title OR a message ?!"
+            title != nil || message != nil, "NOPE ! Why you would like to show an alert without at least a title OR a message ?!"
         )
         
-
-        self.config = config
+        self.dataSource = AlertModel(title: title, message: message, iconName: imageName)
+        self.styleSettings = styleSettings ?? CleanyAlertConfig.getDefaultStyleSettings()
         self.preferredStyle = preferredStyle
         
         super.init(nibName: "CleanyAlertViewController", bundle: Bundle(for: CleanyAlertViewController.self))
@@ -82,38 +84,54 @@ open class CleanyAlertViewController: CleanyModalViewController {
         super.viewDidLoad()
         
         view.frame = UIScreen.main.bounds
-        view.layoutIfNeeded()
         
-        if config.title == nil {
+        if dataSource.title == nil {
             contentStackView.removeArrangedSubview(titleLB)
-        } else if config.message == nil {
+        } else if dataSource.message == nil {
             contentStackView.removeArrangedSubview(messageLB)
         }
         
-//        switch preferredStyle {
-//        case .alert:
-//            alertViewCenterY = alertViewCenterY.setSafelyPriority(UILayoutPriority.required)
-//            alertViewBottom = alertViewBottom.setSafelyPriority(UILayoutPriority.defaultLow)
-//        case .actionSheet:
-//            alertViewCenterY = alertViewCenterY.setSafelyPriority(UILayoutPriority.defaultLow)
-//            alertViewBottom = alertViewBottom.setSafelyPriority(UILayoutPriority.required)
-//        }
+        // ***** ActionSheet vs Alert style
+        //
+        switch preferredStyle {
+        case .alert:
+            alertViewCenterY = alertViewCenterY.setSafelyPriority(UILayoutPriority.required)
+            alertViewBottom = alertViewBottom!.setSafelyPriority(UILayoutPriority.defaultLow)
+            actionsSheetCancelButton?.removeFromSuperview()
+        case .actionSheet:
+            precondition(
+                actions?.filter({ $0.style == .cancel }).count ?? 0 <= 1,
+                "You can only put one cancel action in Action Sheet"
+            )
+            
+            rearrangeActions()
+            
+            alertViewCenterY = alertViewCenterY.setSafelyPriority(UILayoutPriority.defaultLow)
+            alertViewBottom = alertViewBottom!.setSafelyPriority(UILayoutPriority.required)
+            
+            if let cancelAction = actions?.first(where: { $0.style == .cancel }) {
+                actionsSheetCancelButtonHeightConstraint?.constant = styleSettings[.actionCellHeight] ?? kCellDefaultHeight
+                actionsSheetCancelButton?.setTitle(cancelAction.title, for: .normal)
+            } else {
+                actionsSheetCancelButton?.removeFromSuperview()
+            }
+        }
         
-        titleLB.text = config.title
-        messageLB.text = config.message
-        iconIV.image = config.icon
+        alertWidthConstraint = alertWidthConstraint.setSafelyMultiplier(multiplier: preferredStyle.widthMultiplier)
+        //
+        // ***** End style
         
-        titleLB.textColor = config.styleSettings[.textColor] ?? titleLB.textColor
-        titleLB.font = config.styleSettings[.titleFont] ?? titleLB.font
+        titleLB.text = dataSource.title
+        messageLB.text = dataSource.message
+        if let iconName = dataSource.iconName {
+            iconIV.image = UIImage(named: iconName)
+        }
         
-        messageLB.textColor = config.styleSettings[.textColor] ?? messageLB.textColor
-        messageLB.font = config.styleSettings[.messageFont] ?? messageLB.font
-        
-        if config.icon == nil {
+        if dataSource.iconName == nil || iconIV.image == nil {
             iconIV.removeFromSuperview()
         }
         
-        actionsTV.separatorColor = UIColor.black.withAlphaComponent(0.08)
+        actionsTV.separatorColor = UIColor.black.withAlphaComponent(0.08) // TODO: Put in config
         
         handleTableViewActions()
         applyStyle()
@@ -130,8 +148,6 @@ open class CleanyAlertViewController: CleanyModalViewController {
                 constant: viewTuple.height)
             )
         })
-
-        view.layoutIfNeeded()
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
@@ -180,7 +196,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
         textField.layer.borderColor = UIColor(white: 200.0/255.0, alpha: 1.0).cgColor
         textField.layer.borderWidth = 1
         textField.textAlignment = .center
-        textField.tintColor = config.styleSettings[.tintColor] ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
+        textField.tintColor = styleSettings[.tintColor] ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
         
         addCustomViewInContentStack(textField, height: 40)
         
@@ -195,7 +211,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
         textView.layer.cornerRadius = 7
         textView.layer.borderColor = UIColor(white: 200.0/255.0, alpha: 1.0).cgColor
         textView.layer.borderWidth = 1
-        textView.tintColor = config.styleSettings[.tintColor] ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
+        textView.tintColor = styleSettings[.tintColor] ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
     
         addCustomViewInContentStack(textView, height: 100)
         
@@ -212,14 +228,49 @@ open class CleanyAlertViewController: CleanyModalViewController {
     
     // MARK: - Private methods (helpers)
     
+    private func numberOfRowsInActionsTable() -> Int {
+        switch preferredStyle {
+        case .actionSheet:
+            return max((actions?.count ?? 0) - 1, 0)
+        default:
+            return actions?.count ?? 0
+        }
+    }
+    
+    private func rearrangeActions() {
+        // Sort only needed for actionSheet
+        guard preferredStyle == .actionSheet else { return }
+        
+        // Check if cancel action is present
+        if let cancelIndex = _actions?.firstIndex(where: { $0.style == .cancel }), let cancelAction = _actions?[cancelIndex] {
+            // If cancel action is not last, put at the end of array
+            guard cancelIndex != max((_actions?.count ?? 0) - 1, 0) else { return }
+            _actions?.remove(at: cancelIndex)
+            _actions?.append(cancelAction)
+        }
+    }
+    
     private func applyStyle() {
-        if let cornerRadius = config.styleSettings[.cornerRadius] {
-            alertView.layer.cornerRadius = cornerRadius
+        if let cornerRadius = styleSettings[.cornerRadius] {
+            mainContentView?.layer.cornerRadius = cornerRadius
+            actionsSheetCancelButton?.layer.cornerRadius = cornerRadius
         }
         
-        if let tintColor = config.styleSettings[.tintColor] {
+        if let tintColor = styleSettings[.tintColor] {
             iconIV.tintColor = tintColor
         }
+        
+        if let font = styleSettings[.actionsFont] {
+            actionsSheetCancelButton?.titleLabel?.font = font
+        }
+
+        actionsSheetCancelButton?.setTitleColor(styleSettings[.defaultActionColor] ?? UIColor.black, for: .normal)
+        
+        titleLB.textColor = styleSettings[.textColor] ?? titleLB.textColor
+        titleLB.font = styleSettings[.titleFont] ?? titleLB.font
+        
+        messageLB.textColor = styleSettings[.textColor] ?? messageLB.textColor
+        messageLB.font = styleSettings[.messageFont] ?? messageLB.font
     }
     
     private func handleTableViewActions() {
@@ -235,19 +286,31 @@ open class CleanyAlertViewController: CleanyModalViewController {
                 )
             }
             
-            let count = _actions?.count ?? 0
+            let count = numberOfRowsInActionsTable()
             actionsTV.separatorStyle = _actions != nil && count > 1 ? .singleLine : .none
             
-            actionsTVHeight.constant = (config.styleSettings[.actionCellHeight] ?? 60.0) * CGFloat(count) + kFooterMargin
+            actionsTVHeight.constant = (styleSettings[.actionCellHeight] ?? kCellDefaultHeight) * CGFloat(count) + kFooterMargin
             
             if actions != nil && count > 1 {
                 bottomMarginFromActionsTV.constant = 0
             }
             
-            actionsTV.layoutIfNeeded()
             actionsTV.reloadData()
         }
     }
+    
+    // MARK: - IBAction
+    
+    @IBAction private func cancelActionSheet(_ sender: UIButton) {
+        guard let cancelAction = actions?.first(where: { $0.style == .cancel }) else { return }
+        
+        self.onDismissCallback?(self)
+        
+        dismiss(animated: true) {
+            cancelAction.handler?(cancelAction)
+        }
+    }
+    
 }
 
 // MARK: - UITableView Delegates
@@ -255,7 +318,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
 extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actions?.count ?? 0
+        return numberOfRowsInActionsTable()
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -266,7 +329,7 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
         
         action?.cell = cell
         
-        if let font = config.styleSettings[.actionsFont] {
+        if let font = styleSettings[.actionsFont] {
             cell.textLabel?.font = font
         }
         
@@ -276,19 +339,19 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
         let actionColor: UIColor!
         switch action?.style ?? .default {
         case .destructive:
-            actionColor = config.styleSettings[.destructiveColor] ?? UIColor.red
+            actionColor = styleSettings[.destructiveColor] ?? UIColor.red
         case .default:
-            actionColor = config.styleSettings[.tintColor] ??
-                config.styleSettings[.defaultActionColor] ??
-                config.styleSettings[.textColor] ??
+            actionColor = styleSettings[.tintColor] ??
+                styleSettings[.defaultActionColor] ??
+                styleSettings[.textColor] ??
                 UIColor.black
         case .disabled:
-            let color = config.styleSettings[.defaultActionColor] ??
-                config.styleSettings[.textColor] ??
+            let color = styleSettings[.defaultActionColor] ??
+                styleSettings[.textColor] ??
                 UIColor.black
             actionColor = color.withAlphaComponent(0.5)
         default:
-            actionColor = config.styleSettings[.defaultActionColor] ?? UIColor.black
+            actionColor = styleSettings[.defaultActionColor] ?? UIColor.black
         }
         
         cell.textLB?.textColor = actionColor
@@ -315,11 +378,11 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return config.styleSettings[.actionCellHeight] ?? 60.0
+        return styleSettings[.actionCellHeight] ?? kCellDefaultHeight
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return config.styleSettings[.actionCellHeight] ?? 60.0
+        return styleSettings[.actionCellHeight] ?? kCellDefaultHeight
     }
     
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

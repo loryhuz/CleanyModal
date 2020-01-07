@@ -14,14 +14,10 @@ class CleanyModal_Tests: XCTestCase {
     func testBasicAlert() {
         let title = "Hello world"
         
-        let alertConfig = CleanyAlertConfig(
-            title: title,
-            message: "a test message")
+        let alert = CleanyAlertViewController(title: title, message: "a test message")
         
-        let alert = CleanyAlertViewController(config: alertConfig)
-        
-        XCTAssertTrue(alert.config.title == title)
-        XCTAssertTrue(alert.config.message != "another test message")
+        XCTAssertTrue(alert.dataSource.title == title)
+        XCTAssertTrue(alert.dataSource.message != "another test message")
         
         XCTAssertTrue(alert.textFields?.count == 0 || alert.textFields == nil)
         alert.addTextField()

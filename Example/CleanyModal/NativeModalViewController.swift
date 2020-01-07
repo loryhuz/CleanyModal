@@ -17,11 +17,13 @@ class NativeModalViewController: UIViewController {
     }
     
     @IBAction func showAlert(_ sender: Any) {
-        let alertConfig = CleanyAlertConfig(
+//        let alertConfig = CleanyAlertConfig(
+//            title: "Hello world",
+//            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed massa a magna semper semper a eget justo",
+//            iconImgName: "warning_icon")
+        let alert = MyAlertViewController(
             title: "Hello world",
-            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed massa a magna semper semper a eget justo",
-            iconImgName: "warning_icon")
-        let alert = MyAlertViewController(config: alertConfig)
+            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed massa a magna semper semper a eget justo")
 
         alert.addAction(title: "OK", style: .default)
         alert.addAction(title: "Cancel", style: .cancel)

@@ -25,27 +25,24 @@ class ViewController: UIViewController {
             subview.clipsToBounds = true
         }
     }
-
+    
     @IBAction func showBasicAlertAction(_ sender: UIButton) {
-        let alertConfig = CleanyAlertConfig(
+        let alert = MyAlertViewController(
             title: "Hello world",
             message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed massa a magna semper semper a eget justo",
-            iconImgName: "warning_icon")
-        let alert = MyAlertViewController(config: alertConfig)
-        
+            imageName: "warning_icon")
+
         alert.addAction(title: "OK", style: .default)
         alert.addAction(title: "Cancel", style: .cancel)
-        
         
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func showTextfieldAlertAction(_ sender: UIButton) {        
-        let alertConfig = CleanyAlertConfig(
+    @IBAction func showTextfieldAlertAction(_ sender: UIButton) {
+        let alert = MyAlertViewController(
             title: "Password forgotten ?",
-            message: "We'll regenerate your password and send the new one in your mail inbox",
-            iconImgName: nil)
-        let alert = MyAlertViewController(config: alertConfig)
+            message: "We'll regenerate your password and send the new one in your mail inbox")
+        
         alert.addTextField { textField in
             textField.placeholder = "Enter your e-mail"
             textField.font = UIFont.systemFont(ofSize: 12)
@@ -61,14 +58,32 @@ class ViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func showActionSheetAction(_ sender: UIButton) {
+        let alert = MyAlertViewController(
+            title: "Alert with action sheet style",
+            message: "Choose your action",
+            preferredStyle: .actionSheet)
+        
+        alert.addAction(title: "Cancel", style: .cancel)
+        alert.addAction(title: "Save", style: .default)
+        alert.addAction(title: "Remove", style: .destructive)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
 
+// *** Example to have a default style settings for your alerts in your project
+// *** Subclass CleanyAlertViewController, and get a custom init where you set your style config
+//
 class MyAlertViewController: CleanyAlertViewController {
-    override init(config: CleanyAlertConfig) {
-        config.styleSettings[.cornerRadius] = 18
-        super.init(config: config)
+    
+    init(title: String?, message: String?, imageName: String? = nil, preferredStyle: CleanyAlertViewController.Style = .alert) {
+        let styleSettings = CleanyAlertConfig.getDefaultStyleSettings()
+        styleSettings[.cornerRadius] = 18
+        super.init(title: title, message: message, imageName: imageName, preferredStyle: preferredStyle, styleSettings: styleSettings)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

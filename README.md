@@ -14,6 +14,7 @@
 
 - [x] Present some kind of clean alerts (With same API as UIAlertViewController)
 - [x] Add easily Textfields or Custom views as an Alert contains content UIStackView
+- [x] Action Sheets
 - [x] Present full-custom components as modal from a container view
 - [x] iOS 13 compatible with dark/light mode implemented by default
 
@@ -38,10 +39,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 Present a clean Alert with default style:
 
 ```swift
-let alertConfig = CleanyAlertConfig(
-  title: "Hello world",
-  message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed massa a magna semper semper a eget justo")
-let alert = MyAlertViewController(config: alertConfig)
+let alert = MyAlertViewController(
+    title: "Hello world",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed massa a magna semper semper a eget justo",
+    imageName: "warning_icon")
 
 alert.addAction(title: "OK", style: .default)
 alert.addAction(title: "Cancel", style: .cancel)
@@ -53,12 +54,13 @@ Apply your own style/theme easily :
 
 ```swift
 class MyAlertViewController: CleanyAlertViewController {
-  override init(config: CleanyAlertConfig) {
-    config.styleSettings[.tintColor] = .yellow
-    config.styleSettings[.destructiveColor] = .pink
-    super.init(config: config)
-  }
+init(title: String?, message: String?, imageName: String? = nil, preferredStyle: CleanyAlertViewController.Style = .alert) {
+    let styleSettings = CleanyAlertConfig.getDefaultStyleSettings()
+    styleSettings[.tintColor] = .yellow
+    styleSettings[.destructiveColor] = .pink
+    super.init(title: title, message: message, imageName: imageName, preferredStyle: preferredStyle, styleSettings: styleSettings)
 }
+
 ```
 Need to push customization of your Alerts further ? 
 

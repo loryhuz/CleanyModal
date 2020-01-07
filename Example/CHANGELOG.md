@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0
+
+- ABI changes, more close to native UIAlertController
+- Add ActionSheet style
+
 ## 0.1.4
 
 - Another iOS 13 fix about transition
