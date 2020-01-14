@@ -6,6 +6,7 @@
 <a href="http://cocoapods.org/pods/CleanyModal"><img src="https://img.shields.io/cocoapods/v/CleanyModal.svg?style=flat"/></a>
 <a href="http://cocoapods.org/pods/CleanyModal"><img src="https://img.shields.io/cocoapods/l/CleanyModal.svg?style=flat"/></a>
 <a href="http://cocoapods.org/pods/CleanyModal"><img src="https://img.shields.io/cocoapods/p/CleanyModal.svg?style=flat"/></a>
+<a href="https://swift.org/"><img src="https://img.shields.io/badge/Swift-5-orange.svg?style=flat"/></a>
 </p>
 
 <p align="center"><strong>CleanyModal</strong> is a good way to use UI-Customised alerts with ease</p>
@@ -79,6 +80,7 @@ See example project to see all abilities to customize, enjoy !
 ## Requirements
 
 - iOS 9.0+
+- Swift 4.2+
 
 ## Installation
 

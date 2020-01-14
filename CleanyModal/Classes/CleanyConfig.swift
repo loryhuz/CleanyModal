@@ -18,10 +18,12 @@ public extension CleanyAlertConfig {
         styleSettings.set(key: .actionCellHeight, value: 60)
         
         if #available(iOS 13.0, *) {
+            #if swift(>=5.0)
             styleSettings.set(key: .textColor, value: .label)
             styleSettings.set(key: .defaultActionColor, value: .label)
             styleSettings.set(key: .destructiveColor, value: .systemRed)
             styleSettings.set(key: .tintColor, value: .systemBlue)
+            #endif
         } else {
             styleSettings.set(key: .tintColor, value: .blue)
             styleSettings.set(key: .textColor, value: .black)
