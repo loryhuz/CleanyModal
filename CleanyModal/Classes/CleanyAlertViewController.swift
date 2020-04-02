@@ -214,7 +214,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
         textView.tintColor = styleSettings[.tintColor] ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
     
         addCustomViewInContentStack(textView, height: 100)
-                
+          
         configurationHandler?(textView)
     }
     
