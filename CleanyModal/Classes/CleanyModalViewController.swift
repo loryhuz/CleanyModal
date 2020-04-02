@@ -22,7 +22,7 @@ open class CleanyModalViewController: UIViewController {
     @IBOutlet public var alertViewCenterY: NSLayoutConstraint!
     @IBOutlet public var alertWidthConstraint: NSLayoutConstraint!
     @IBOutlet public var alertViewBottom: NSLayoutConstraint?
-        
+    
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
