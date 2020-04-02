@@ -16,11 +16,13 @@ open class CleanyModalViewController: UIViewController {
     }
     open var onDismissCallback: ((UIViewController) -> ())?
     
+    public var needKeyboardNotificationUpdate = false
+    
     @IBOutlet public var alertView: UIView!
     @IBOutlet public var alertViewCenterY: NSLayoutConstraint!
     @IBOutlet public var alertWidthConstraint: NSLayoutConstraint!
     @IBOutlet public var alertViewBottom: NSLayoutConstraint?
-    
+        
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
@@ -39,6 +41,8 @@ open class CleanyModalViewController: UIViewController {
         super.viewDidLoad()
         
         transitioningDelegate = modalTransition
+        
+        guard needKeyboardNotificationUpdate else { return }
         
         NotificationCenter.default.addObserver(
             self,

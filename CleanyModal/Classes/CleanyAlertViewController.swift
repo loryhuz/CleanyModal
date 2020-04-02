@@ -214,11 +214,15 @@ open class CleanyAlertViewController: CleanyModalViewController {
         textView.tintColor = styleSettings[.tintColor] ?? UIButton.init(type: .system).titleColor(for: .normal) ?? UIColor.blue
     
         addCustomViewInContentStack(textView, height: 100)
-        
+                
         configurationHandler?(textView)
     }
     
     open func addCustomViewInContentStack(_ view: UIView, height: CGFloat) {
+        if view is UIControl || view is UITextView {
+            needKeyboardNotificationUpdate = true
+        }
+        
         if _stackedViews == nil {
             _stackedViews = [(view: UIView, height: CGFloat)]()
         }
