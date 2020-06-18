@@ -63,7 +63,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
     
     let dataSource: AlertModel
     
-    public init(title: String?, message: String?, imageName: String? = nil, preferredStyle: CleanyAlertViewController.Style = .alert, styleSettings: CleanyAlertConfig.StyleSettings? = nil) {
+    public init(title: String?, message: String?, imageName: String? = nil, preferredStyle: CleanyAlertViewController.Style = .alert, styleSettings: CleanyAlertConfig.StyleSettings? = nil, customNibName: String? = nil) {
         
         precondition(
             title != nil || message != nil, "NOPE ! Why you would like to show an alert without at least a title OR a message ?!"
@@ -73,7 +73,11 @@ open class CleanyAlertViewController: CleanyModalViewController {
         self.styleSettings = styleSettings ?? CleanyAlertConfig.getDefaultStyleSettings()
         self.preferredStyle = preferredStyle
         
-        super.init(nibName: "CleanyAlertViewController", bundle: Bundle(for: CleanyAlertViewController.self))
+        if let nibName = customNibName {
+            super.init(nibName: nibName, bundle: nil)
+        } else {
+            super.init(nibName: "CleanyAlertViewController", bundle: Bundle(for: CleanyAlertViewController.self))
+        }
     }
     
     required public init?(coder aDecoder: NSCoder) {

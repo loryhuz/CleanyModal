@@ -17,6 +17,10 @@ public extension CleanyAlertConfig {
         styleSettings.set(key: .cornerRadius, value: 15)
         styleSettings.set(key: .actionCellHeight, value: 60)
         
+        styleSettings.set(key: .tintColor, value: .blue)
+        styleSettings.set(key: .textColor, value: .black)
+        styleSettings.set(key: .destructiveColor, value: .red)
+        
         if #available(iOS 13.0, *) {
             #if swift(>=5.0)
             styleSettings.set(key: .textColor, value: .label)
@@ -24,10 +28,6 @@ public extension CleanyAlertConfig {
             styleSettings.set(key: .destructiveColor, value: .systemRed)
             styleSettings.set(key: .tintColor, value: .systemBlue)
             #endif
-        } else {
-            styleSettings.set(key: .tintColor, value: .blue)
-            styleSettings.set(key: .textColor, value: .black)
-            styleSettings.set(key: .destructiveColor, value: .red)
         }
         
         return styleSettings

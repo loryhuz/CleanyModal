@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.2
+
+- Add possibility to use custom nib in init
+
+## 1.0.1
+
+- Add support for Swift 4.2
+
 ## 1.0.0
 
 - ABI changes, more close to native UIAlertController
