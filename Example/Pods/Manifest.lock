@@ -1,5 +1,5 @@
 PODS:
-  - CleanyModal (0.1.1)
+  - CleanyModal (1.0.1)
 
 DEPENDENCIES:
   - CleanyModal (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CleanyModal: cb749a1d44a95d2ce0cf4263e4aadd5bee96be16
+  CleanyModal: 168c308614ea9d8ed90dfc642d91cb8b81b92356
 
-PODFILE CHECKSUM: bfb2f07851f27e9e5952b8e64c68b767d2cec9c9
+PODFILE CHECKSUM: bc6de4ce5c7c8ba32979cf012f1a91c9386bc21d
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.9.3

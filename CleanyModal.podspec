@@ -31,5 +31,5 @@ Swift UI Kit to help to present clean and beautiful modal/alert in your iOS apps
   s.ios.deployment_target = '9.0'
   s.swift_version = '5.0'
 
-  s.source_files = 'CleanyModal/Classes/**/*'
+  s.source_files = 'Sources/CleanyModal/Classes/**/*'
 end

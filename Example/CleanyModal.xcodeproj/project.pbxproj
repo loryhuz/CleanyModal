@@ -339,15 +339,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CleanyModal_Example-CleanyModal_Tests/Pods-CleanyModal_Example-CleanyModal_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CleanyModal/CleanyModal.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CleanyModal.framework",
 			);
