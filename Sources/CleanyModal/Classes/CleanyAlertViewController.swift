@@ -292,7 +292,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
                 actionsTV.dataSource = self
                 actionsTV.delegate = self
                 
-                let bundle = Bundle(for: CleanyAlertActionTableViewCell.self)
+                let bundle = Bundle.spmBundle
                 actionsTV.register(
                     UINib(nibName: "CleanyAlertActionTableViewCell", bundle: bundle),
                     forCellReuseIdentifier: kCellReuseIdentifier
