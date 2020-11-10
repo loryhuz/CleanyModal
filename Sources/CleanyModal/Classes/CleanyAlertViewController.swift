@@ -7,6 +7,19 @@
 
 import UIKit
 
+public extension Bundle {
+    private class TempClassForBundle {}
+
+    static let spmBundle: Bundle = {
+        guard let url = Bundle.main.url(forResource: "CleanyModal_CleanyModal", withExtension: "bundle"),
+              let bundle = Bundle(url: url) else {
+            return Bundle(for: TempClassForBundle.self)
+        }
+
+        return bundle
+    }()
+}
+
 private let kFooterMargin: CGFloat = 0
 private let kCellReuseIdentifier = "actionCell"
 private let kCellDefaultHeight: CGFloat = 60.0
@@ -73,7 +86,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
         self.styleSettings = styleSettings ?? CleanyAlertConfig.getDefaultStyleSettings()
         self.preferredStyle = preferredStyle
         
-        super.init(nibName: "CleanyAlertViewController", bundle: Bundle(for: CleanyAlertViewController.self))
+        super.init(nibName: "CleanyAlertViewController", bundle: Bundle.spmBundle)
     }
     
     required public init?(coder aDecoder: NSCoder) {
