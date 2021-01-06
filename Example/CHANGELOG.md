@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- Add style keys for background and separator colors
+
 ## 1.0.2
 
 - Add possibility to use custom nib in init

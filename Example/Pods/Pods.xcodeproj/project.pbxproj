@@ -16,6 +16,7 @@
 		9A3C93D2B19D3BB115C23923035BAFC7 /* CleanyAlertViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 384980DB268B69183748A6F150182EEF /* CleanyAlertViewController.xib */; };
 		9C49A65E23C4DC550012C823 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C49A65D23C4DC550012C823 /* AlertModel.swift */; };
 		9C49A66023C4DC5F0012C823 /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C49A65F23C4DC5F0012C823 /* NSLayoutConstraint+Extension.swift */; };
+		9CFFE6DE25A5C77300B63E42 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE6DD25A5C77300B63E42 /* UIColor+Extension.swift */; };
 		A04D89FEAC8C6F4D0270B8F8C54AABE8 /* CleanyAlertActionTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = E925025DD1E9CB928D1F8066F6658DB5 /* CleanyAlertActionTableViewCell.xib */; };
 		B233761DFE65558F1BE66CF4C96EF5FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
 		BACFB0B49530786397F7A18728BD37E8 /* CleanyModal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCD6D4929256CCA66874B420EDCAE30 /* CleanyModal-dummy.m */; };
@@ -71,6 +72,7 @@
 		98C5218DEA7407553D5A1915821ABBD4 /* CleanyModal-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CleanyModal-prefix.pch"; sourceTree = "<group>"; };
 		9C49A65D23C4DC550012C823 /* AlertModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertModel.swift; path = ../CleanyModal/Classes/Model/AlertModel.swift; sourceTree = "<group>"; };
 		9C49A65F23C4DC5F0012C823 /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSLayoutConstraint+Extension.swift"; path = "../CleanyModal/Classes/Helper/NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
+		9CFFE6DD25A5C77300B63E42 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "../CleanyModal/Classes/Helper/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AA6111FE039AD24663CC17DED69417E8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AA9EED76131E5F457656147D73DEEFCE /* CleanyModal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CleanyModal.xcconfig; sourceTree = "<group>"; };
 		AB95DC6359EE7FFC5EE8D3AA57004EEA /* CleanyModal-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CleanyModal-umbrella.h"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		9C7E55A4230EC6CD004975AA /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				9CFFE6DD25A5C77300B63E42 /* UIColor+Extension.swift */,
 				9C49A65F23C4DC5F0012C823 /* NSLayoutConstraint+Extension.swift */,
 			);
 			path = Helper;
@@ -423,6 +426,7 @@
 				5A0E38830423D386AA983EC791E27F01 /* CleanyAlertActionTableViewCell.swift in Sources */,
 				A04D89FEAC8C6F4D0270B8F8C54AABE8 /* CleanyAlertActionTableViewCell.xib in Sources */,
 				F5851D9401DD2348D879D0C24D1826B4 /* CleanyAlertViewController.swift in Sources */,
+				9CFFE6DE25A5C77300B63E42 /* UIColor+Extension.swift in Sources */,
 				9C49A66023C4DC5F0012C823 /* NSLayoutConstraint+Extension.swift in Sources */,
 				9A3C93D2B19D3BB115C23923035BAFC7 /* CleanyAlertViewController.xib in Sources */,
 				6F75637FB8334A6D90F3EFAFD0D6422F /* CleanyConfig.swift in Sources */,
@@ -608,7 +612,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				MODULEMAP_FILE = "Target Support Files/CleanyModal/CleanyModal.modulemap";
 				PRODUCT_MODULE_NAME = CleanyModal;
 				PRODUCT_NAME = CleanyModal;
@@ -767,7 +771,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				MODULEMAP_FILE = "Target Support Files/CleanyModal/CleanyModal.modulemap";
 				PRODUCT_MODULE_NAME = CleanyModal;
 				PRODUCT_NAME = CleanyModal;

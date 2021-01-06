@@ -20,6 +20,8 @@ public extension CleanyAlertConfig {
         styleSettings.set(key: .tintColor, value: .blue)
         styleSettings.set(key: .textColor, value: .black)
         styleSettings.set(key: .destructiveColor, value: .red)
+        styleSettings.set(key: .separatorColor, value: UIColor.black.withAlphaComponent(0.08))
+        styleSettings.set(key: .backgroundColor, value: UIColor.white)
         
         if #available(iOS 13.0, *) {
             #if swift(>=5.0)
@@ -27,6 +29,8 @@ public extension CleanyAlertConfig {
             styleSettings.set(key: .defaultActionColor, value: .label)
             styleSettings.set(key: .destructiveColor, value: .systemRed)
             styleSettings.set(key: .tintColor, value: .systemBlue)
+            styleSettings.set(key: .separatorColor, value: UIColor.label.withAlphaComponent(0.08))
+            styleSettings.set(key: .backgroundColor, value: UIColor.systemBackgroundElevated)
             #endif
         }
         
@@ -81,4 +85,6 @@ public extension CleanyAlertConfig.StyleKeys {
     static let messageFont = CleanyAlertConfig.StyleKey<UIFont>("messageFont")
     static let actionsFont = CleanyAlertConfig.StyleKey<UIFont>("actionsFont")
     
+    static let backgroundColor = CleanyAlertConfig.StyleKey<UIColor>("backgroundColor")
+    static let separatorColor = CleanyAlertConfig.StyleKey<UIColor>("separatorColor")
 }

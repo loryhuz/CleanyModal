@@ -135,7 +135,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
             iconIV.removeFromSuperview()
         }
         
-        actionsTV.separatorColor = UIColor.black.withAlphaComponent(0.08) // TODO: Put in config
+        actionsTV.separatorColor = styleSettings[.separatorColor] ?? UIColor.black.withAlphaComponent(0.08)
         
         handleTableViewActions()
         applyStyle()
@@ -260,6 +260,12 @@ open class CleanyAlertViewController: CleanyModalViewController {
             actionsSheetCancelButton?.layer.cornerRadius = cornerRadius
         }
         
+        if let backgroundColor = styleSettings[.backgroundColor] {
+            mainContentView?.backgroundColor = backgroundColor
+            actionsSheetCancelButton?.backgroundColor = backgroundColor
+            actionsTV?.backgroundColor = backgroundColor
+        }
+        
         if let tintColor = styleSettings[.tintColor] {
             iconIV.tintColor = tintColor
         }
@@ -339,6 +345,7 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
         
         cell.title = action?.title
         cell.img = action?.image
+        cell.backgroundColor = styleSettings[.backgroundColor] ?? .white
         
         let actionColor: UIColor!
         switch action?.style ?? .default {
