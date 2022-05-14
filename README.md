@@ -84,11 +84,22 @@ See example project to see all abilities to customize, enjoy !
 
 ## Installation
 
+### Cocoapods
 CleanyModal is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'CleanyModal'
+```
+
+### Swift Package Manager
+CleanyModal is also available through [Swift Package Manager](https://www.swift.org/package-manager/). To install
+it using SPM, simply add the following line to your `Package.swift` file:
+
+``` swift
+    dependencies: [
+        .package(name: "CleanyModal", url: "https://github.com/loryhuz/CleanyModal.git", branch: "master"),
+    ]
 ```
 
 ## Author
