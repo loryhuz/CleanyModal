@@ -76,7 +76,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
         if let nibName = customNibName {
             super.init(nibName: nibName, bundle: nil)
         } else {
-            super.init(nibName: "CleanyAlertViewController", bundle: Bundle(for: CleanyAlertViewController.self))
+            super.init(nibName: "CleanyAlertViewController", bundle: .current)
         }
     }
     
@@ -289,9 +289,8 @@ open class CleanyAlertViewController: CleanyModalViewController {
                 actionsTV.dataSource = self
                 actionsTV.delegate = self
                 
-                let bundle = Bundle(for: CleanyAlertActionTableViewCell.self)
                 actionsTV.register(
-                    UINib(nibName: "CleanyAlertActionTableViewCell", bundle: bundle),
+                    UINib(nibName: "CleanyAlertActionTableViewCell", bundle: .current),
                     forCellReuseIdentifier: kCellReuseIdentifier
                 )
             }
